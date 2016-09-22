@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+
+    <package name="default" namespace="/" extends="struts-default">
+    
+    	<!-- 首页的登陆action  -->
+    	<action name="logicPro" class="Lab2.action.LogicProAction">
+    		<result name="success">/WEB-INF/content/Menu.jsp</result>
+    		<result name="error">/WEB-INF/content/error.jsp</result>
+    	</action>
+    	
+    	<!-- 首页的注册action -->
+    	<action name="registPro" class="Lab2.action.LogicProAction" method="regist">
+    		<result name="success">/WEB-INF/content/home.jsp</result>
+    		<result name="error">/WEB-INF/content/error.jsp</result>
+    	</action>
+    	
+    	<!-- 作者登陆action -->
+    	<action name="AuthorPro" class="Lab2.action.AuthorProAction">
+    		<result name="success">/WEB-INF/content/Menu.jsp</result>
+    		<result name="error">/WEB-INF/content/error.jsp</result>
+    	</action>
+    	
+    	<!-- 作者存入action -->
+    	<action name="AuthorRegistPro" class="Lab2.action.AuthorProAction" method="regist">
+    		<result name="success">/WEB-INF/content/welcome.jsp</result>
+    		<result name="error">/WEB-INF/content/error.jsp</result>
+    	</action>
+    	
+    	<!-- 查看所有作者信息action -->
+    	<action name="viewAuthors" class="Lab2.action.ViewAuthorAction">
+    		<result name="success">/WEB-INF/content/All_Author.jsp</result>
+    		<result name="error">/WEB-INF/content/error.jsp</result>
+    	</action>
+    	
+    	
+    	<!-- 如果没有别的特殊action，默认界面是其本身 -->
+		<action name="*">
+			<result>/WEB-INF/content/{1}.jsp</result>
+		</action>
+    </package>
+
+    <!-- Add packages here -->
+
+</struts>
