@@ -27,16 +27,30 @@ public class AuthorService {
 		// TODO Auto-generated method stub
 		//authorDb.add(author);
 		Connection conn = getConn();
+		PreparedStatement str;
+		int yes=1;
 		String sql = "insert into authors (AuthorID,name,Age,Country) values(?,?,?,?)";
 	    PreparedStatement pstmt;
 	    try {
-	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
-	        pstmt.setString(1, author.getAuthorID());
-	        pstmt.setString(2, author.getName());
-	        pstmt.setInt(3, author.getAge());
-	        pstmt.setString(4, author.getCountry());
-	        pstmt.executeUpdate();
-	        pstmt.close();
+	    	str = (PreparedStatement)conn.prepareStatement("select * from authors");
+	    	ResultSet rs = str.executeQuery();
+	    	while(rs.next()){
+	        	//userDb.add(new User(rs.getInt(1),rs.getString(2),rs.getString(3)));
+	    		if(author.getAuthorID().equals(rs.getString(1))&&author.getAge()==rs.getInt(3)&&author.getCountry().equals(rs.getString(4))&&author.getName().equals(rs.getString(2))){
+    				yes=0;
+    				break;
+    			}
+	        }
+	    	if(yes==1){
+	    		pstmt = (PreparedStatement) conn.prepareStatement(sql);
+	 	        pstmt.setString(1, author.getAuthorID());
+	 	        pstmt.setString(2, author.getName());
+	 	        pstmt.setInt(3, author.getAge());
+	 	        pstmt.setString(4, author.getCountry());
+	 	        pstmt.executeUpdate();
+	 	        pstmt.close();
+	    	}
+	       
 	        conn.close();
 	    } catch (SQLException e) {
 	        e.printStackTrace();
@@ -47,6 +61,7 @@ public class AuthorService {
 		Connection conn = getConn();
 	    String sql = "select * from authors";
 	    PreparedStatement pstmt;
+	    
 	    int yes=0;
 	    try {
 	        pstmt = (PreparedStatement)conn.prepareStatement(sql);

@@ -31,4 +31,5 @@ public class AuthorProAction implements Action {
 		au.addAuthor(author);
 		return SUCCESS;
 	}
+	
 }

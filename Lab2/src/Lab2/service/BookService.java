@@ -9,7 +9,6 @@ import java.util.List;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 
-import Lab2.domin.Author;
 import Lab2.domin.Book;
 
 public class BookService {
@@ -18,19 +17,31 @@ public class BookService {
 		return getAll(book);
 	}
 	public void addBook(Book book) {
+		PreparedStatement str;
 		Connection conn = getConn();
 		String sql = "insert into books (authorID,publiser,publiserDate,price,title,isbn) values(?,?,?,?,?,?)";
 	    PreparedStatement pstmt;
+	    int yes=1;
 	    try {
-	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
-	        pstmt.setString(1, book.getAuthorID());
-	        pstmt.setString(2, book.getPubliser());
-	        pstmt.setString(3, book.getPubliserDate());
-	        pstmt.setDouble(4, book.getPrice());
-	        pstmt.setString(5, book.getTitle());
-	        pstmt.setString(6, book.getIsbn());
-	        pstmt.executeUpdate();
-	        pstmt.close();
+	    	str = (PreparedStatement)conn.prepareStatement("select * from books");
+	    	ResultSet rs = str.executeQuery();
+	    	while(rs.next()){
+	    		if(book.getAuthorID().equals(rs.getString(1))&&book.getPubliser().equals(rs.getString(2))&&book.getPubliserDate().equals(rs.getString(3))&&book.getPrice()==rs.getDouble(4)&&book.getTitle().equals(rs.getString(5))&&book.getIsbn().equals(rs.getString(6))){
+	    			yes=0;
+	    			break;
+	    		}
+	    	}
+	    	if(yes==1){
+	    		pstmt = (PreparedStatement) conn.prepareStatement(sql);
+		        pstmt.setString(1, book.getAuthorID());
+		        pstmt.setString(2, book.getPubliser());
+		        pstmt.setString(3, book.getPubliserDate());
+		        pstmt.setDouble(4, book.getPrice());
+		        pstmt.setString(5, book.getTitle());
+		        pstmt.setString(6, book.getIsbn());
+		        pstmt.executeUpdate();
+		        pstmt.close();
+	    	}
 	        conn.close();
 	    } catch (SQLException e) {
 	        e.printStackTrace();

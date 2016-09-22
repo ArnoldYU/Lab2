@@ -34,6 +34,11 @@
     		<result name="error">/WEB-INF/content/error.jsp</result>
     	</action>
     	
+    	<!-- 作者更改action -->
+    	<action name="AuthorChange" class="Lab2.action.AuthorProAction" method="change">
+    		<result name="success">/WEB-INF/content/Menu.jsp</result>
+    		<result name="error">/WEB-INF/content/error.jsp</result>
+    	</action>
     	
     	<!-- 查看所有作者信息action -->
     	<action name="viewAuthors" class="Lab2.action.ViewAuthorAction">

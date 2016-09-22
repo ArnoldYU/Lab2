@@ -7,8 +7,7 @@
 	background-size: 100%;
 }
 .center{
-	height: 450px;
-    width: 600px;
+	
     color: #FFA07A;
     position: absolute;
     margin-top: 350px;
@@ -17,8 +16,7 @@
 .centerOfMenu{
 	color: #FFA07A;
     position: absolute;
-    left: 50%;
-    margin-left: -230px;
+    left: 30%;
     margin-top: 200px;
 }
 form {
@@ -169,4 +167,7 @@ form {
     top: 10%;
     overflow-x: auto; 
     overflow-y: auto; 
+}
+.menu1{
+	
 }

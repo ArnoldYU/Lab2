@@ -1,4 +1,5 @@
-<ul id="nav">
+	<div class="menu1">
+		<ul id="nav">
     		<li><a href="#">Search</a>
 		        <ul>
 		            <li><a href="Search_Author">Author</a></li>
@@ -19,5 +20,7 @@
 		            <li><a href="viewAuthors">All Author</a></li>
 		            <li><a href="viewBooks">All Title</a></li>
 		        </ul>
+		    <li><a href="home">Exit</a></li>
     		<li><a href="#">Help</a></li>
-</ul>
+		</ul>
+	</div>

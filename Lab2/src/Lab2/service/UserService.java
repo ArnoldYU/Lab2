@@ -45,23 +45,6 @@ public class UserService {
 	    }
 	    return -1;
 	}
-	private static int insert(User user) {
-	    Connection conn = getConn();
-	    int i = 0;
-	    String sql = "insert into states ('name','pass') values(?,?)";
-	    PreparedStatement pstmt;
-	    try {
-	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
-	        pstmt.setString(1, user.getName());
-	        pstmt.setString(2, user.getPass());
-	        i = pstmt.executeUpdate();
-	        pstmt.close();
-	        conn.close();
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
-	    return i;
-	}
 	static List<User> userDb;
 	static{
 		userDb=new ArrayList<>();
@@ -78,17 +61,29 @@ public class UserService {
 		return getAll(user);
 	}
 	public void addUser(User user) {
-//		user.setId(new Random().nextInt(99999));
-//		userDb.add(user);
+	    PreparedStatement str;
 		Connection conn = getConn();
 		String sql = "insert into states (name,pass) values(?,?)";
 	    PreparedStatement pstmt;
+	    int yes=1;
 	    try {
-	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
-	        pstmt.setString(1, user.getName());
-	        pstmt.setString(2, user.getPass());
-	        pstmt.executeUpdate();
-	        pstmt.close();
+	    	str = (PreparedStatement)conn.prepareStatement("select * from states");
+	    	ResultSet rs = str.executeQuery();
+	    	while(rs.next()){
+	        	//userDb.add(new User(rs.getInt(1),rs.getString(2),rs.getString(3)));
+	        	if(rs.getString(2).equals(user.getName())&&rs.getString(3).equals(user.getPass())){
+	        		yes=0;
+	        		break;
+	        	}
+	        }
+	    	if(yes==1){
+	    		pstmt = (PreparedStatement) conn.prepareStatement(sql);
+		        pstmt.setString(1, user.getName());
+		        pstmt.setString(2, user.getPass());
+		        pstmt.executeUpdate();
+		        pstmt.close();
+	    	}
+	        
 	        conn.close();
 	    } catch (SQLException e) {
 	        e.printStackTrace();
