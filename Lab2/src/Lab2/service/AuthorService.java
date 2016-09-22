@@ -17,7 +17,7 @@ public class AuthorService {
 	
 	static {
 		authorDb=new ArrayList<>();
-		authorDb.add(new Author("110","sun",19,"China"));
+		//authorDb.add(new Author("110","sun",19,"China"));
 	}
 	
 	public Integer validateAuthor(Author author) {
@@ -45,7 +45,19 @@ public class AuthorService {
 	}
 
 	public List<Author> getAllAuthors() {
-		// TODO Auto-generated method stub
+		Connection conn = getConn();
+	    String sql = "select * from authors";
+	    PreparedStatement pstmt;
+	    try {
+	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
+	        ResultSet rs = pstmt.executeQuery();
+	        while(rs.next()){
+	        	authorDb.add(new Author(rs.getString(1),rs.getString(2),rs.getInt(3),rs.getString(4)));
+	        }	
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+		
 		return authorDb;
 	}
 	//打开数据库
