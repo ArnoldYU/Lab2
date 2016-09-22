@@ -42,18 +42,6 @@ public class UserService {
 	        		return rs.getInt(1);
 	        }
 	        return -1;
-//	        int col = rs.getMetaData().getColumnCount();
-//	        System.out.println("============================");
-//	        while (rs.next()) {
-//	            for (int i = 1; i <= col; i++) {
-//	                System.out.print(rs.getString(i) + "\t");
-//	                if ((i == 2) && (rs.getString(i).length() < 8)) {
-//	                    System.out.print("\t");
-//	                }
-//	             }
-//	            System.out.println("");
-//	        }
-//	            System.out.println("============================");
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    }

@@ -19,14 +19,29 @@ public class AuthorService {
 		authorDb=new ArrayList<>();
 		authorDb.add(new Author("110","sun",19,"China"));
 	}
-
+	
 	public Integer validateAuthor(Author author) {
 		return getAll(author);
 	}
 
 	public void addAuthor(Author author) {
 		// TODO Auto-generated method stub
-		authorDb.add(author);
+		//authorDb.add(author);
+		Connection conn = getConn();
+		String sql = "insert into authors (AuthorID,name,Age,Country) values(?,?,?,?)";
+	    PreparedStatement pstmt;
+	    try {
+	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
+	        pstmt.setString(1, author.getAuthorID());
+	        pstmt.setString(2, author.getName());
+	        pstmt.setInt(3, author.getAge());
+	        pstmt.setString(4, author.getCountry());
+	        pstmt.executeUpdate();
+	        pstmt.close();
+	        conn.close();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
 	}
 
 	public List<Author> getAllAuthors() {
@@ -50,6 +65,7 @@ public class AuthorService {
 	    }
 	    return conn;
 	}
+	//从数据库中查找数据
 	private static Integer getAll(Author author) {
 	    Connection conn = getConn();
 	    String sql = "select * from authors";
