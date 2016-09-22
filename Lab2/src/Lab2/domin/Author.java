@@ -3,7 +3,7 @@ package Lab2.domin;
 public class Author {
 	private String authorID;
 	private String name;
-	private	String age;
+	private	int age;
 	private String country;
 	
 	
@@ -19,10 +19,10 @@ public class Author {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getAge() {
+	public int getAge() {
 		return age;
 	}
-	public void setAge(String age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 	public String getCountry() {
@@ -62,7 +62,7 @@ public class Author {
 		return true;
 	}
 	public Author(){}
-	public Author(String authorID, String name, String age, String country) {
+	public Author(String authorID, String name, int age, String country) {
 		super();
 		this.authorID = authorID;
 		this.name = name;
