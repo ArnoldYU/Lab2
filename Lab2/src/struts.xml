@@ -34,12 +34,30 @@
     		<result name="error">/WEB-INF/content/error.jsp</result>
     	</action>
     	
+    	
     	<!-- 查看所有作者信息action -->
     	<action name="viewAuthors" class="Lab2.action.ViewAuthorAction">
     		<result name="success">/WEB-INF/content/All_Author.jsp</result>
     		<result name="error">/WEB-INF/content/error.jsp</result>
     	</action>
     	
+    	<!-- 作品登陆action -->
+    	<action name="BookPro" class="Lab2.action.BookProAction">
+    		<result name="success">/WEB-INF/content/Menu.jsp</result>
+    		<result name="error">/WEB-INF/content/error.jsp</result>
+    	</action>
+    	
+    	<!-- 作品存入action -->
+    	<action name="BookRegistPro" class="Lab2.action.BookProAction" method="regist">
+    		<result name="success">/WEB-INF/content/welcome.jsp</result>
+    		<result name="error">/WEB-INF/content/error.jsp</result>
+    	</action>
+    	
+    	<!-- 查看所有作品信息action -->
+    	<action name="viewBooks" class="Lab2.action.ViewABookAction">
+    		<result name="success">/WEB-INF/content/All_Book.jsp</result>
+    		<result name="error">/WEB-INF/content/error.jsp</result>
+    	</action>
     	
     	<!-- 如果没有别的特殊action，默认界面是其本身 -->
 		<action name="*">

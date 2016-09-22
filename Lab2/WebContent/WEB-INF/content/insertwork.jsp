@@ -13,7 +13,7 @@
     	<div class="word">
     		<h1 style="color:#F08080">登记作品信息</h1>
     	</div>
-    	<form class="form-horizontal" action="" method="" >
+    	<form class="form-horizontal" action="BookRegistPro" method="post" >
 		  <div class="control-group">
 		    <label class="control-label" for="inputEmail">AuthorID</label>
 		    <div class="controls">
