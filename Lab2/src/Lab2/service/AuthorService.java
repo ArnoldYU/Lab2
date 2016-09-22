@@ -10,7 +10,6 @@ import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 
 import Lab2.domin.Author;
-import Lab2.domin.User;
 
 public class AuthorService {
 	static List<Author> authorDb;

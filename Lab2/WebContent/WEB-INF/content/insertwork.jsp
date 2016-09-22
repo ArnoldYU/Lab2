@@ -17,19 +17,19 @@
 		  <div class="control-group">
 		    <label class="control-label" for="inputEmail">AuthorID</label>
 		    <div class="controls">
-		      <input type="text" id="inputEmail" placeholder="AuthorID" name="book.AuthorID">
+		      <input type="text" id="inputEmail" placeholder="AuthorID" name="book.authorID">
 		    </div>
 		  </div>
 		  <div class="control-group">
 		    <label class="control-label" for="inputEmail">Publiser</label>
 		    <div class="controls">
-		      <input type="text" id="inputEmail" placeholder="Publiser" name="book.Publiser">
+		      <input type="text" id="inputEmail" placeholder="Publiser" name="book.publiser">
 		    </div>
 		  </div>
 		  <div class="control-group">
 		    <label class="control-label" for="inputEmail">PubliserDat</label>
 		    <div class="controls">
-		      <input type="text" id="inputEmail" placeholder="PubliserDat" name="book.PubliserDate">
+		      <input type="text" id="inputEmail" placeholder="PubliserDat" name="book.publiserDate">
 		    </div>
 		  </div>
 		  <div class="control-group">
@@ -41,13 +41,13 @@
 		   <div class="control-group">
 		    <label class="control-label" for="inputEmail">Title</label>
 		    <div class="controls">
-		      <input type="text" id="inputEmail" placeholder="Title" name="book.Title">
+		      <input type="text" id="inputEmail" placeholder="Title" name="book.title">
 		    </div>
 		  </div>
 		   <div class="control-group">
 		    <label class="control-label" for="inputEmail">ISBN</label>
 		    <div class="controls">
-		      <input type="text" id="inputEmail" placeholder="ISBN" name="book.ISBN">
+		      <input type="text" id="inputEmail" placeholder="ISBN" name="book.isbn">
 		    </div>
 		  </div>
 		  <div class="control-group">

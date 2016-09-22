@@ -2,8 +2,6 @@ package Lab2.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import java.sql.DriverManager;

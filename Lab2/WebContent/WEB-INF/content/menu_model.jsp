@@ -8,8 +8,8 @@
    			<li><a href="#">Delete</a></li>
     		<li><a href="#">Update</a>
     			<ul>
-    				<li><a href="#">Insert Author</a></li>
-    				<li><a href="#">Insert work</a></li>
+    				<li><a href="insert_author">Insert Author</a></li>
+    				<li><a href="insertwork">Insert work</a></li>
     				<li><a href="#">change Author</a></li>
     				<li><a href="#">change work</a></li>
     			</ul>

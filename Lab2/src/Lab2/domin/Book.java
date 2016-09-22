@@ -1,11 +1,9 @@
 package Lab2.domin;
 
-import java.util.Date;
-
 public class Book {
 	private String authorID;
 	private String publiser;
-	private Date publiserDate;
+	private String publiserDate;
 	private double price;
 	private String title;
 	private String isbn;
@@ -21,10 +19,10 @@ public class Book {
 	public void setPubliser(String publiser) {
 		this.publiser = publiser;
 	}
-	public Date getPubliserDate(){
+	public String getPubliserDate() {
 		return publiserDate;
 	}
-	public void setPubliserDate(Date publiserDate) {
+	public void setPubliserDate(String publiserDate) {
 		this.publiserDate = publiserDate;
 	}
 	public double getPrice() {
@@ -45,13 +43,11 @@ public class Book {
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
-	
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		result = prime * result + ((authorID == null) ? 0 : authorID.hashCode());
 		return result;
 	}
 	@Override
@@ -63,15 +59,15 @@ public class Book {
 		if (getClass() != obj.getClass())
 			return false;
 		Book other = (Book) obj;
-		if (title == null) {
-			if (other.title != null)
+		if (authorID == null) {
+			if (other.authorID != null)
 				return false;
-		} else if (!title.equals(other.title))
+		} else if (!authorID.equals(other.authorID))
 			return false;
 		return true;
 	}
 	public Book(){}
-	public Book(String authorID, String publiser, Date publiserDate, double price, String title, String isbn) {
+	public Book(String authorID, String publiser, String publiserDate, double price, String title, String isbn) {
 		super();
 		this.authorID = authorID;
 		this.publiser = publiser;
@@ -80,6 +76,7 @@ public class Book {
 		this.title = title;
 		this.isbn = isbn;
 	}
+	
 	
 
 }
