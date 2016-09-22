@@ -5,28 +5,35 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="mystyle.css" rel="stylesheet" type="text/css" />
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
 <title>查看所有作品信息</title>
 </head>
-<body>
-	<table width="600" border="1">
-		<tr>
-			<th>AuthorID</th>
-			<th>Publiser</th>
-			<th>PubliserDate</th>
-			<th>price</th>
-			<th>Title</th>
-			<th>ISBN</th>
-		</tr>
-		<s:iterator value="books" var="au"> 
+<body class="body_all">
+	<div class="all_table">
+		<table class="table table-striped">
 			<tr>
-				<td>${au.authorID}</td>
-				<td>${au.publiser}</td>
-				<td>${au.publiserDate}</td>
-				<td>${au.price}</td>
-				<td>${au.title}</td>
-				<td>${au.isbn}</td>
+				<th>AuthorID</th>
+				<th>Publiser</th>
+				<th>PubliserDate</th>
+				<th>price</th>
+				<th>Title</th>
+				<th>ISBN</th>
 			</tr>
-		</s:iterator>
-	</table>
+			<s:iterator value="books" var="au"> 
+				<tr>
+					<td>${au.authorID}</td>
+					<td>${au.publiser}</td>
+					<td>${au.publiserDate}</td>
+					<td>${au.price}</td>
+					<td>${au.title}</td>
+					<td>${au.isbn}</td>
+				</tr>
+			</s:iterator>
+		</table>
+	</div>
+	
 </body>
 </html>
+
+			

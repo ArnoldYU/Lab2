@@ -16,8 +16,8 @@
     		</li>	
     		<li><a href="#">Show</a>
     			<ul>
-		            <li><a href="{pageContext.request.contextPath}/viewAuthors">All Author</a></li>
-		            <li><a href="{pageContext.request.contextPath}/viewBooks">All Title</a></li>
+		            <li><a href="viewAuthors">All Author</a></li>
+		            <li><a href="viewBooks">All Title</a></li>
 		        </ul>
     		<li><a href="#">Help</a></li>
 </ul>

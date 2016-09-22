@@ -47,11 +47,20 @@ public class AuthorService {
 		Connection conn = getConn();
 	    String sql = "select * from authors";
 	    PreparedStatement pstmt;
+	    int yes=0;
 	    try {
 	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
 	        ResultSet rs = pstmt.executeQuery();
 	        while(rs.next()){
-	        	authorDb.add(new Author(rs.getString(1),rs.getString(2),rs.getInt(3),rs.getString(4)));
+	        	yes=1;
+	        	for(Author u:authorDb){
+	    			if(u.getAuthorID().equals(rs.getString(1))&&u.getAge()==rs.getInt(3)&&u.getCountry().equals(rs.getString(4))&&u.getName().equals(rs.getString(2))){
+	    				yes=0;
+	    				break;
+	    			}
+	    		}
+	        	if(yes==1 || authorDb.size()==0)
+	        		authorDb.add(new Author(rs.getString(1),rs.getString(2),rs.getInt(3),rs.getString(4)));
 	        }	
 	    } catch (SQLException e) {
 	        e.printStackTrace();

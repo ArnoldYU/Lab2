@@ -9,14 +9,11 @@ import java.util.List;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 
+import Lab2.domin.Author;
 import Lab2.domin.Book;
 
 public class BookService {
-	static List<Book> bookDb;
-	static {
-		bookDb=new ArrayList<>();
-		//bookDb.add(new Book("111","1",new Date(),11,"1","1"));
-	}
+
 	public Integer validateBook(Book book){
 		return getAll(book);
 	}
@@ -40,14 +37,25 @@ public class BookService {
 	    }
 	}
 	public List<Book> getAllBooks() {
+		List<Book> bookDb;
+		bookDb=new ArrayList<>();
 		Connection conn = getConn();
 	    String sql = "select * from books";
+	    int yes=1;
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
 	        ResultSet rs = pstmt.executeQuery();
 	        while(rs.next()){
-	        	bookDb.add(new Book(rs.getString(1),rs.getString(2),rs.getString(3),rs.getDouble(4),rs.getString(5),rs.getString(6)));
+	        	yes=1;
+	        	for(Book u:bookDb){
+	    			if(u.getAuthorID().equals(rs.getString(1))&&u.getPubliser().equals(rs.getString(2))&&u.getPubliserDate().equals(rs.getString(3))&&u.getPrice()==rs.getDouble(4)&&u.getTitle().equals(rs.getString(5))&&u.getIsbn().equals(rs.getString(6))){
+	    				yes=0;
+	    				break;
+	    			}
+	    		}
+	        	if(yes==1 || bookDb.size()==0)
+	        		bookDb.add(new Book(rs.getString(1),rs.getString(2),rs.getString(3),rs.getDouble(4),rs.getString(5),rs.getString(6)));
 	        }	
 	    } catch (SQLException e) {
 	        e.printStackTrace();

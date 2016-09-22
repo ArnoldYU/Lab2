@@ -157,3 +157,16 @@ form {
 .mya{
 	margin-left:10px;
 }
+.body_all{
+	background: url(allauthor.jpg) no-repeat;
+	background-size: 100%;
+}
+.all_table{
+	right: 8%;
+    width: 40%;
+    height: 80%;
+    position: absolute;
+    top: 10%;
+    overflow-x: auto; 
+    overflow-y: auto; 
+}
