@@ -9,6 +9,7 @@ import java.util.List;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 
+import Lab2.domin.Author;
 import Lab2.domin.Book;
 
 public class BookService {
@@ -52,21 +53,13 @@ public class BookService {
 		bookDb=new ArrayList<>();
 		Connection conn = getConn();
 	    String sql = "select * from books";
-	    int yes=1;
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
 	        ResultSet rs = pstmt.executeQuery();
+	        bookDb.clear();
 	        while(rs.next()){
-	        	yes=1;
-	        	for(Book u:bookDb){
-	    			if(u.getAuthorID().equals(rs.getString(1))&&u.getPubliser().equals(rs.getString(2))&&u.getPubliserDate().equals(rs.getString(3))&&u.getPrice()==rs.getDouble(4)&&u.getTitle().equals(rs.getString(5))&&u.getIsbn().equals(rs.getString(6))){
-	    				yes=0;
-	    				break;
-	    			}
-	    		}
-	        	if(yes==1 || bookDb.size()==0)
-	        		bookDb.add(new Book(rs.getString(1),rs.getString(2),rs.getString(3),rs.getDouble(4),rs.getString(5),rs.getString(6)));
+	        	bookDb.add(new Book(rs.getString(1),rs.getString(2),rs.getString(3),rs.getDouble(4),rs.getString(5),rs.getString(6)));
 	        }	
 	    } catch (SQLException e) {
 	        e.printStackTrace();
@@ -106,5 +99,23 @@ public class BookService {
 	        e.printStackTrace();
 	    }
 	    return -1;
+	}
+	public List<Book> getAuthorBooks(Author author) {
+		List<Book> authorbookDb;
+		authorbookDb=new ArrayList<>();
+		Connection conn = getConn();
+	    String sql = "select * from books";
+	    PreparedStatement pstmt;
+	    try {
+	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
+	        ResultSet rs = pstmt.executeQuery();
+	        while(rs.next()){
+	        	//if(rs.getString(1).equals(author.getAuthorID()))
+	        		authorbookDb.add(new Book(rs.getString(1),rs.getString(2),rs.getString(3),rs.getDouble(4),rs.getString(5),rs.getString(6)));
+	        }	
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+		return authorbookDb;
 	}
 }

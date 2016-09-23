@@ -31,5 +31,12 @@ public class AuthorProAction implements Action {
 		au.addAuthor(author);
 		return SUCCESS;
 	}
+	public String change(){
+		AuthorService au=new AuthorService();
+		Integer i=au.changeAuthor(author);
+		if (i>0)
+			return SUCCESS;
+		return ERROR;
+	}
 	
 }

@@ -7,8 +7,10 @@
 <meta charset="utf-8">
 <title>用户登录</title>
 <link href="mystyle.css" rel="stylesheet" type="text/css" />
+<link href="mystyle.css" rel="stylesheet" type="text/css" />
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
 <title>查看所有作者信息</title>
+
 </head>
 <body class="body_all">
 	<div class="all_table">
@@ -28,6 +30,17 @@
 				</tr>
 			</s:iterator>
 		</table>
+	</div>
+
+	<div class="navbox">
+		<ul class="nav">
+			<li><a href="Menu">Menu</a></li>
+			<li><a href="changeauthor">Update Author</a></li>
+			<li><a href="Delete_Author">Delete Author</a></li>
+			<li><a href="Search_Author">Search Author</a></li>
+			<li><a href="#">Help</a></li>
+			<li><a href="home">Exit</a></li>
+		</ul>
 	</div>
 	
 </body>

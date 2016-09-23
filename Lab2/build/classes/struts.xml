@@ -35,7 +35,7 @@
     	</action>
     	
     	<!-- 作者更改action -->
-    	<action name="AuthorChange" class="Lab2.action.AuthorProAction" method="change">
+    	<action name="goto_change_author" class="Lab2.action.AuthorProAction" method="change">
     		<result name="success">/WEB-INF/content/Menu.jsp</result>
     		<result name="error">/WEB-INF/content/error.jsp</result>
     	</action>
@@ -57,7 +57,7 @@
     		<result name="success">/WEB-INF/content/Menu.jsp</result>
     		<result name="error">/WEB-INF/content/error.jsp</result>
     	</action>
-    	
+
     	<!-- 查看所有作品信息action -->
     	<action name="viewBooks" class="Lab2.action.ViewABookAction">
     		<result name="success">/WEB-INF/content/All_Book.jsp</result>

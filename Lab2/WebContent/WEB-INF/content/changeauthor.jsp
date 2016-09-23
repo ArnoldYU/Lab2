@@ -13,11 +13,11 @@
     	<div class="word">
     		<h1 style="color:#F08080">登记作者信息</h1>
     	</div>
-    	<form class="form-horizontal" action="" method="post" >
+    	<form class="form-horizontal" action="goto_change_author" method="post" >
 		  <div class="control-group">
 		    <label class="control-label" for="inputEmail">AuthorID</label>
 		    <div class="controls">
-		      <input type="text" id="inputEmail" placeholder="AuthorID" name="author.AuthorID">
+		      <input type="text" id="inputEmail" placeholder="author.AuthorID" name="author.AuthorID">
 		    </div>
 		  </div>
 		  <div class="control-group">
@@ -29,13 +29,13 @@
 		  <div class="control-group">
 		    <label class="control-label" for="inputEmail">Age</label>
 		    <div class="controls">
-		      <input type="text" id="inputEmail" placeholder="Age" name="author.Age">
+		      <input type="text" id="inputEmail" placeholder="Age" name="author.age">
 		    </div>
 		  </div>
 		  <div class="control-group">
 		    <label class="control-label" for="inputEmail">"Country"</label>
 		    <div class="controls">
-		      <input type="text" id="inputEmail" placeholder="Country" name="author.Country">
+		      <input type="text" id="inputEmail" placeholder="Country" name="author.country">
 		    </div>
 		  </div>
 		  <div class="control-group">
