@@ -9,7 +9,9 @@
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <script language=javascript>
 		function  Verify(){
-			alert("确认删除");
+			 if(confirm('确定删除?')){
+			       continue;
+			  }
 		}
 	</script>
   </head>
@@ -51,7 +53,8 @@
 		  </div>
 		  <div class="control-group">
 		    <div class="controls">
-		      <button type="submit" class="btn" onclick="Verify()">Delete</button>    
+		      <button type="submit" class="btn" onclick="return confirm('确认删除');">Delete</button>    
+		      <a href="Delete_or_Change_Author" class="btn">返回</a>
 		    </div>
 		  </div>
 		</form>
