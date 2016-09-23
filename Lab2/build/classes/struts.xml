@@ -64,10 +64,23 @@
     		<result name="error">/WEB-INF/content/error.jsp</result>
     	</action>
     	
+    	<!-- 进入Author删除页面 这里需要将所有信息弄到页面上 -->
+		<action name="goto_delete_page" class="Lab2.action.ViewAuthorAction">
+			<result name="success">/WEB-INF/content/Delete_Author.jsp</result>
+    		<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		
+		<!-- 删除Author信息 -->
+		<action name="goto_delete_author" class="Lab2.action.AuthorProAction" method="delete">
+			<result name="success">/WEB-INF/content/Delete_or_Change_Author.jsp</result>
+    		<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
     	<!-- 如果没有别的特殊action，默认界面是其本身 -->
 		<action name="*">
 			<result>/WEB-INF/content/{1}.jsp</result>
 		</action>
+		
+		
     </package>
 
     <!-- Add packages here -->

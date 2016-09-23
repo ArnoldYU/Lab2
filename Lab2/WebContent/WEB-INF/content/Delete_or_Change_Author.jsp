@@ -6,11 +6,11 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>查看所有作者信息</title>
+<title>更改或删除作者信息</title>
 <link href="mystyle.css" rel="stylesheet" type="text/css" />
 <link href="mystyle.css" rel="stylesheet" type="text/css" />
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
-<title>查看所有作者信息</title>
+<title>更改或删除作者信息</title>
 
 </head>
 <body class="body_all">
@@ -35,13 +35,19 @@
 				<th>Name</th>
 				<th>Age</th>
 				<th>Country</th>
+				<th>Function</th>
 			</tr>
 			<tr>
 				<td><%=rs.getString(1)%></td>
 				<td><%=rs.getString(2)%></td>
 				<td><%=rs.getString(3)%></td>
 				<td><%=rs.getString(4)%></td>
+				<td><a href="changeauthor?authorID=<%=rs.getString(1)%>">change</a>/
+					<a href="deleteauthor?Allauthor=<%=rs.getString(1)+"*"+rs.getString(2)+"*"+rs.getString(3)+"*"+rs.getString(4)%>">delete</a>
+				</td>
 			</tr>
+		 </table>
+	</div>
 	<%
         }
 		rs.close();
@@ -51,9 +57,6 @@
 		e.printStackTrace();
 		}
     %>   
-		</table>
-	</div>
-
 	<%@ include file="leftmenuauthor.jsp" %>
 	
 </body>

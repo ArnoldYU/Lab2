@@ -38,5 +38,10 @@ public class AuthorProAction implements Action {
 			return SUCCESS;
 		return ERROR;
 	}
+	public String delete(){
+		AuthorService au=new AuthorService();
+		au.deleteAuthor(author);
+		return SUCCESS;
+	}
 	
 }

@@ -9,33 +9,36 @@
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
   </head>
   <body class="body1"> 
+  	<%
+	String authorID=request.getParameter("authorID");
+	%>
     <div class="center">
     	<div class="word">
-    		<h1 style="color:#F08080">登记作者信息</h1>
+    		<h1 style="color:#F08080">更改作者信息</h1>
     	</div>
-    	<form class="form-horizontal" action="goto_change_author" method="post" >
+    	<form class="form-horizontal" action="goto_change_author" method="get" >
 		  <div class="control-group">
 		    <label class="control-label" for="inputEmail">AuthorID</label>
 		    <div class="controls">
-		      <input type="text" id="inputEmail" placeholder="author.AuthorID" name="author.AuthorID">
+		      <input type="text" id="inputEmail" placeholder="AuthorID" name="author.AuthorID" readonly="readonly " value="<%=authorID%>"/>
 		    </div>
 		  </div>
 		  <div class="control-group">
 		    <label class="control-label" for="inputEmail">name</label>
 		    <div class="controls">
-		      <input type="text" id="inputEmail" placeholder="Name" name="author.name">
+		      <input type="text" id="inputEmail" placeholder="Name" name="author.name"/>
 		    </div>
 		  </div>
 		  <div class="control-group">
 		    <label class="control-label" for="inputEmail">Age</label>
 		    <div class="controls">
-		      <input type="text" id="inputEmail" placeholder="Age" name="author.age">
+		      <input type="text" id="inputEmail" placeholder="Age" name="author.age"/>
 		    </div>
 		  </div>
 		  <div class="control-group">
 		    <label class="control-label" for="inputEmail">"Country"</label>
 		    <div class="controls">
-		      <input type="text" id="inputEmail" placeholder="Country" name="author.country">
+		      <input type="text" id="inputEmail" placeholder="Country" name="author.country"/>
 		    </div>
 		  </div>
 		  <div class="control-group">

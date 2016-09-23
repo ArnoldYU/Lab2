@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.sql.*,com.mysql.jdbc.PreparedStatement
+    ,com.mysql.jdbc.Connection,java.sql.SQLException,java.sql.DriverManager"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,6 +12,20 @@
 </head>
 <body class="body_all">
 	<div class="all_table">
+	<%
+		try{
+		String driver="com.mysql.jdbc.Driver";
+		String url="jdbc:mysql://localhost:3306/book";
+		String username="root";
+		String password="arnold-huang-123";
+		Connection conn=null;
+		conn = (Connection) DriverManager.getConnection(url, username, password);
+		String sql="select * from books";
+		PreparedStatement pstmt;
+		pstmt = (PreparedStatement)conn.prepareStatement(sql);
+        ResultSet rs = pstmt.executeQuery();
+        while(rs.next()){
+	%>
 		<table class="table table-striped">
 			<tr>
 				<th>AuthorID</th>
@@ -20,28 +35,26 @@
 				<th>Title</th>
 				<th>ISBN</th>
 			</tr>
-			<s:iterator value="books" var="au"> 
 				<tr>
-					<td>${au.authorID}</td>
-					<td>${au.publiser}</td>
-					<td>${au.publiserDate}</td>
-					<td>${au.price}</td>
-					<td>${au.title}</td>
-					<td>${au.isbn}</td>
+					<td><%=rs.getString(1)%></td>
+					<td><%=rs.getString(2)%></td>
+					<td><%=rs.getString(3)%></td>
+					<td><%=rs.getString(4)%></td>
+					<td><%=rs.getString(5)%></td>
+					<td><%=rs.getString(6)%></td>
 				</tr>
-			</s:iterator>
 		</table>
+	<%
+        }
+		rs.close();
+		pstmt.close();
+	    conn.close();
+		}catch(Exception e){
+		e.printStackTrace();
+		}
+    %>  
 	</div>
-	<div class="navbox">
-		<ul class="nav">
-			<li><a href="Menu">Menu</a></li>
-			<li><a href="changeauthor">Update Book</a></li>
-			<li><a href="Delete_Author">Delete Book</a></li>
-			<li><a href="Search_Author">Search Book</a></li>
-			<li><a href="#">Help</a></li>
-			<li><a href="home">Exit</a></li>
-		</ul>
-	</div>
+	<%@ include file="leftmenu.jsp" %>
 </body>
 </html>
 
