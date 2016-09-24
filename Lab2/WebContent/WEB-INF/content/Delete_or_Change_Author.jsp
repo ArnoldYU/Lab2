@@ -8,7 +8,6 @@
 <meta charset="utf-8">
 <title>更改或删除作者信息</title>
 <link href="mystyle.css" rel="stylesheet" type="text/css" />
-<link href="mystyle.css" rel="stylesheet" type="text/css" />
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
 <title>更改或删除作者信息</title>
 

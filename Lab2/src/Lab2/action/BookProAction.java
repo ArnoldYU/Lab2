@@ -40,7 +40,7 @@ public class BookProAction implements Action {
 	}
 	public String delete(){
 		BookService au=new BookService();
-		au.deleteAuthor(book);
+		au.deleteBook(book);
 		return SUCCESS;
 	}
 }

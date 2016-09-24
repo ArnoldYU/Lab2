@@ -22,10 +22,10 @@
     		</li>	
     		<li><a href="#">Show</a>
     			<ul>
-		            <li><a href="All_Author">All Author</a></li>
+		            <li><a href="viewAuthors">All Author</a></li>
 		            <li><a href="viewBooks">All Title</a></li>
 		        </ul>
 		    <li><a href="home">Exit</a></li>
-    		<li><a href="#">Help</a></li>
+    		<li><a href="help">Help</a></li>
 		</ul>
 	</div>

@@ -167,7 +167,7 @@ public class BookService {
 	    }
 	    return i;
 	}
-	public void deleteAuthor(Book book) {
+	public void deleteBook(Book book) {
 		Connection conn = getConn();
 		int i = 0;
 		String booktitle=book.getTitle();
@@ -176,12 +176,13 @@ public class BookService {
 		} catch (UnsupportedEncodingException e1) {
 			e1.printStackTrace();
 		}
+		System.out.println(booktitle);
 		String sql = "delete from books where title='" + booktitle + "'";
 		PreparedStatement pstmt;
 		try {
 		pstmt = (PreparedStatement) conn.prepareStatement(sql);
 		i = pstmt.executeUpdate();
-		System.out.println("resutl: " + i);
+		System.out.println("resutlbook: " + i);
 		pstmt.close();
 		conn.close();
 		} catch (SQLException e) {

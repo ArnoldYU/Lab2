@@ -11,15 +11,10 @@
 <title>查看所有作品信息</title>
 </head>
 <body class="body_all">
-	<div class="all_table">
+	<div class="all_table" style="right:15%;width:20%;">
 		<table class="table table-striped">
 			<tr>
-				<th>AuthorID</th>
-				<th>Publiser</th>
-				<th>PubliserDate</th>
-				<th>price</th>
 				<th>Title</th>
-				<th>ISBN</th>
 			</tr>
 			<%
 				try{
@@ -36,12 +31,7 @@
 		        while(rs.next()){
 			%>
 				<tr>
-					<td><%=rs.getString(1)%></td>
-					<td><%=rs.getString(2)%></td>
-					<td><%=rs.getString(3)%></td>
-					<td><%=rs.getString(4)%></td>
-					<td><%=rs.getString(5)%></td>
-					<td><%=rs.getString(6)%></td>
+					<td><a href="OneBook?Allbook=<%=rs.getString(1)+"*"+rs.getString(2)+"*"+rs.getString(3)+"*"+rs.getString(4)+"*"+rs.getString(5)+"*"+rs.getString(6)%>"><%=rs.getString(5)%></a></td>
 				</tr>
 				<%
 			        }

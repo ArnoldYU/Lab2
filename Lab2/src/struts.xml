@@ -13,7 +13,7 @@
     	<!-- 首页的登陆action  -->
     	<action name="logicPro" class="Lab2.action.LogicProAction">
     		<result name="success">/WEB-INF/content/Menu.jsp</result>
-    		<result name="error">/WEB-INF/content/error.jsp</result>
+    		<result name="error">/WEB-INF/content/error1.jsp</result>
     	</action>
     	
     	<!-- 首页的注册action -->
@@ -82,10 +82,16 @@
 		</action>
 		<!-- 删除book信息 -->
 		<action name="goto_delete_book" class="Lab2.action.BookProAction" method="delete">
-			<result name="success">/WEB-INF/content/Delete_or_Change_Author.jsp</result>
+			<result name="success">/WEB-INF/content/Delete_or_Change_Book.jsp</result>
     		<result name="error">/WEB-INF/content/error.jsp</result>
 		</action>
     	<!-- 如果没有别的特殊action，默认界面是其本身 -->
+    	<action name="home">
+			<result>/WEB-INF/content/home.jsp</result>
+		</action>
+		<action name="register">
+			<result>/WEB-INF/content/register.jsp</result>
+		</action>
 		<action name="*">
 			<result>/WEB-INF/content/{1}.jsp</result>
 		</action>
