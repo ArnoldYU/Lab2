@@ -11,6 +11,7 @@
   <body class="body1"> 
   	<%
 	String authorID=request.getParameter("authorID");
+  	
 	%>
     <div class="center">
     	<div class="word">
@@ -20,7 +21,7 @@
 		  <div class="control-group">
 		    <label class="control-label" for="inputEmail">AuthorID</label>
 		    <div class="controls">
-		      <input type="text" id="inputEmail" placeholder="AuthorID" name="author.AuthorID" readonly="readonly " value="<%=authorID%>"/>
+		      <input type="text" id="inputEmail" placeholder="AuthorID" name="author.AuthorID" readonly="readonly" value="<%=authorID%>"/>
 		    </div>
 		  </div>
 		  <div class="control-group">

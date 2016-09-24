@@ -3,6 +3,7 @@ package Lab2.action;
 import com.opensymphony.xwork2.Action;
 
 import Lab2.domin.Book;
+import Lab2.service.AuthorService;
 import Lab2.service.BookService;
 
 
@@ -28,6 +29,18 @@ public class BookProAction implements Action {
 	public String regist(){
 		BookService bk=new BookService();
 		bk.addBook(book);
+		return SUCCESS;
+	}
+	public String change(){
+		BookService bk=new BookService();
+		Integer i=bk.changebook(book);
+		if (i>0)
+			return SUCCESS;
+		return ERROR;
+	}
+	public String delete(){
+		BookService au=new BookService();
+		au.deleteAuthor(book);
 		return SUCCESS;
 	}
 }

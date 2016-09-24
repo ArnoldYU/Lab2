@@ -1,5 +1,6 @@
 package Lab2.service;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -114,12 +115,24 @@ public class AuthorService {
 	    return -1;
 	}
 
-	public Integer changeAuthor(Author author) {
+	public Integer changeAuthor(Author author){
 		Connection conn = getConn();
 	    int i = 0,j=0,z=0;
-	    String sql1 = "update authors set name='" + author.getName() + "' where authorID='" + author.getAuthorID() + "'";
-	    String sql2 = "update authors set age='" + author.getAge() + "'where authorID='" + author.getAuthorID() + "'";
-	    String sql3 = "update authors set country='" + author.getCountry() + "' where authorID='" + author.getAuthorID() + "'";
+	    String Name=author.getName();
+	    String Age=author.getAge();
+	    String Country=author.getCountry();
+	    try {
+			Name  = new String (Name.getBytes("ISO8859-1"),"UTF-8");
+			Age  = new String (Age.getBytes("ISO8859-1"),"UTF-8");
+			Country  = new String (Country.getBytes("ISO8859-1"),"UTF-8");
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	   
+	    String sql1 = "update authors set name='" + Name + "' where authorID='" + author.getAuthorID() + "'";
+	    String sql2 = "update authors set age='" + Age + "'where authorID='" + author.getAuthorID() + "'";
+	    String sql3 = "update authors set country='" + Country + "' where authorID='" + author.getAuthorID() + "'";
 	    PreparedStatement pstmt1;
 	    PreparedStatement pstmt2;
 	    PreparedStatement pstmt3;

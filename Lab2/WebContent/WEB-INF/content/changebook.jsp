@@ -4,16 +4,26 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>登记作品信息</title>
+    <title>修改作品信息</title>
     <link href="mystyle.css" rel="stylesheet" type="text/css" />
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
   </head>
   <body class="body1"> 
+ 	<%
+	String booktitle=request.getParameter("Title");
+ 	booktitle  = new String(booktitle.getBytes("ISO8859-1"),"UTF-8");
+	%>
     <div class="center">
     	<div class="word">
-    		<h1 style="color:#F08080">登记作品信息</h1>
+    		<h1 style="color:#F08080">修改作品信息</h1>
     	</div>
-    	<form class="form-horizontal" action="BookRegistPro" method="post" >
+    	<form class="form-horizontal" action="goto_change_book" method="get" >
+    	  <div class="control-group">
+		    <label class="control-label" for="inputEmail">Title</label>
+		    <div class="controls">
+		      <input type="text" id="inputEmail" placeholder="Title" readonly="readonly" value="<%=booktitle%>" name="book.title">
+		    </div>
+		  </div>
 		  <div class="control-group">
 		    <label class="control-label" for="inputEmail">AuthorID</label>
 		    <div class="controls">
@@ -27,7 +37,7 @@
 		    </div>
 		  </div>
 		  <div class="control-group">
-		    <label class="control-label" for="inputEmail">PubliserDat</label>
+		    <label class="control-label" for="inputEmail">PubliserDate</label>
 		    <div class="controls">
 		      <input type="text" id="inputEmail" placeholder="PubliserDat" name="book.publiserDate">
 		    </div>
@@ -39,12 +49,6 @@
 		    </div>
 		  </div>
 		   <div class="control-group">
-		    <label class="control-label" for="inputEmail">Title</label>
-		    <div class="controls">
-		      <input type="text" id="inputEmail" placeholder="Title" name="book.title">
-		    </div>
-		  </div>
-		   <div class="control-group">
 		    <label class="control-label" for="inputEmail">ISBN</label>
 		    <div class="controls">
 		      <input type="text" id="inputEmail" placeholder="ISBN" name="book.isbn">
@@ -52,7 +56,7 @@
 		  </div>
 		  <div class="control-group">
 		    <div class="controls">
-		      <button type="submit" class="btn">Sign in</button>    
+		      <button type="submit" class="btn">Change</button>    
 		    </div>
 		  </div>
 		</form>

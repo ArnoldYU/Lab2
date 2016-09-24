@@ -14,20 +14,6 @@
 
 </head>
 <body class="body_all">
-	<%
-		try{
-		String driver="com.mysql.jdbc.Driver";
-		String url="jdbc:mysql://localhost:3306/author";
-		String username="root";
-		String password="arnold-huang-123";
-		Connection conn=null;
-		conn = (Connection) DriverManager.getConnection(url, username, password);
-		String sql="select * from authors";
-		PreparedStatement pstmt;
-		pstmt = (PreparedStatement)conn.prepareStatement(sql);
-        ResultSet rs = pstmt.executeQuery();
-        while(rs.next()){
-	%>
 	<div class="all_table">
 		<table class="table table-striped">
 			<tr>
@@ -37,6 +23,20 @@
 				<th>Country</th>
 				<th>Function</th>
 			</tr>
+			<%
+				try{
+				String driver="com.mysql.jdbc.Driver";
+				String url="jdbc:mysql://localhost:3306/author";
+				String username="root";
+				String password="arnold-huang-123";
+				Connection conn=null;
+				conn = (Connection) DriverManager.getConnection(url, username, password);
+				String sql="select * from authors";
+				PreparedStatement pstmt;
+				pstmt = (PreparedStatement)conn.prepareStatement(sql);
+		        ResultSet rs = pstmt.executeQuery();
+		        while(rs.next()){
+			%>
 			<tr>
 				<td><%=rs.getString(1)%></td>
 				<td><%=rs.getString(2)%></td>
@@ -46,17 +46,18 @@
 					<a href="deleteauthor?Allauthor=<%=rs.getString(1)+"*"+rs.getString(2)+"*"+rs.getString(3)+"*"+rs.getString(4)%>">delete</a>
 				</td>
 			</tr>
+			<%
+		        }
+				rs.close();
+				pstmt.close();
+			    conn.close();
+				}catch(Exception e){
+				e.printStackTrace();
+				}
+		    %>   
 		 </table>
 	</div>
-	<%
-        }
-		rs.close();
-		pstmt.close();
-	    conn.close();
-		}catch(Exception e){
-		e.printStackTrace();
-		}
-    %>   
+	
 	<%@ include file="leftmenuauthor.jsp" %>
 	
 </body>

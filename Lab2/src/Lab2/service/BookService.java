@@ -1,5 +1,6 @@
 package Lab2.service;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -117,5 +118,75 @@ public class BookService {
 	        e.printStackTrace();
 	    }
 		return authorbookDb;
+	}
+	public Integer changebook(Book book){
+		Connection conn = getConn();
+	    int i = 0,j=0,z=0;
+	    String authorID=book.getAuthorID();
+	    String Publiser=book.getPubliser();
+	    String PubliserDate=book.getPubliserDate();
+	    String ISBN =book.getIsbn();
+	    try {
+	    	authorID  = new String (authorID.getBytes("ISO8859-1"),"UTF-8");
+	    	Publiser  = new String (Publiser.getBytes("ISO8859-1"),"UTF-8");
+	    	PubliserDate  = new String (PubliserDate.getBytes("ISO8859-1"),"UTF-8");
+	    	ISBN  = new String (ISBN.getBytes("ISO8859-1"),"UTF-8");
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	   
+	    String sql1 = "update books set authorID='" + authorID + "' where title='" + book.getTitle() + "'";
+	    String sql2 = "update books set publiser='" + Publiser + "'where title='" + book.getTitle() + "'";
+	    String sql3 = "update books set publiserDate='" + PubliserDate + "' where title='" + book.getTitle() + "'";
+	    String sql4 = "update books set price='" + book.getPrice() + "' where title='" + book.getTitle() +"'";
+	    String sql5 = "update books set country='" + ISBN + "' where title='" + book.getTitle()+"'";
+	    PreparedStatement pstmt1;
+	    PreparedStatement pstmt2;
+	    PreparedStatement pstmt3;
+	    PreparedStatement pstmt4;
+	    PreparedStatement pstmt5;
+	    try {
+	        pstmt1 = (PreparedStatement) conn.prepareStatement(sql1);
+	        pstmt2 = (PreparedStatement) conn.prepareStatement(sql2);
+	        pstmt3 = (PreparedStatement) conn.prepareStatement(sql3);
+	        pstmt4 = (PreparedStatement) conn.prepareStatement(sql4);
+	        pstmt5 = (PreparedStatement) conn.prepareStatement(sql5);
+	        i = pstmt1.executeUpdate();
+	        j = pstmt2.executeUpdate();
+	        z = pstmt3.executeUpdate();
+	        System.out.println("resutl: " + i+j+z);
+	        pstmt1.close();
+	        pstmt2.close();
+	        pstmt3.close();
+	        pstmt4.close();
+	        pstmt5.close();
+	        conn.close();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    return i;
+	}
+	public void deleteAuthor(Book book) {
+		Connection conn = getConn();
+		int i = 0;
+		String booktitle=book.getTitle();
+		try {
+			booktitle  = new String(booktitle.getBytes("ISO8859-1"),"UTF-8");
+		} catch (UnsupportedEncodingException e1) {
+			e1.printStackTrace();
+		}
+		String sql = "delete from books where title='" + booktitle + "'";
+		PreparedStatement pstmt;
+		try {
+		pstmt = (PreparedStatement) conn.prepareStatement(sql);
+		i = pstmt.executeUpdate();
+		System.out.println("resutl: " + i);
+		pstmt.close();
+		conn.close();
+		} catch (SQLException e) {
+		e.printStackTrace();
+		}
+
 	}
 }

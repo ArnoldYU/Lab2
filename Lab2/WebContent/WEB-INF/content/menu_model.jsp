@@ -17,7 +17,7 @@
     				<li><a href="insert_author">Insert Author</a></li>
     				<li><a href="insertwork">Insert work</a></li>
     				<li><a href="Delete_or_Change_Author">change Author</a></li>
-    				<li><a href="changework">change work</a></li>
+    				<li><a href="Delete_or_Change_Book">change work</a></li>
     			</ul>
     		</li>	
     		<li><a href="#">Show</a>

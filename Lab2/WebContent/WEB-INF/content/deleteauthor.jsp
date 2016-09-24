@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>更改作者信息</title>
+    <title>删除作者信息</title>
     <link href="mystyle.css" rel="stylesheet" type="text/css" />
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <script language=javascript>
@@ -21,6 +21,8 @@
 	String author1=request.getParameter("Allauthor");
   	String []authorID =author1.split("\\*");
   	System.out.print(authorID);
+ 	authorID[1]  = new String(authorID[1].getBytes("ISO8859-1"),"UTF-8");
+ 	authorID[3]  = new String(authorID[3].getBytes("ISO8859-1"),"UTF-8");
 	%>
     <div class="center">
     	<div class="word">

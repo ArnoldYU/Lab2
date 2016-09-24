@@ -6,41 +6,49 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>查看所有作者信息</title>
+<title>更改或删除作品信息</title>
 <link href="mystyle.css" rel="stylesheet" type="text/css" />
 <link href="mystyle.css" rel="stylesheet" type="text/css" />
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
-<title>查看所有作者信息</title>
+<title>更改或删除作品信息</title>
 
 </head>
 <body class="body_all">
 	<div class="all_table">
 		<table class="table table-striped">
 			<tr>
+				<th>Title</th>
 				<th>AuthorID</th>
-				<th>Name</th>
-				<th>Age</th>
-				<th>Country</th>
+				<th>Publiser</th>
+				<th>PubliserDate</th>
+				<th>Price</th>
+				<th>ISBN</th>
+				<th>Function</th>
 			</tr>
 			<%
 				try{
 				String driver="com.mysql.jdbc.Driver";
-				String url="jdbc:mysql://localhost:3306/author";
+				String url="jdbc:mysql://localhost:3306/book";
 				String username="root";
 				String password="arnold-huang-123";
 				Connection conn=null;
 				conn = (Connection) DriverManager.getConnection(url, username, password);
-				String sql="select * from authors";
+				String sql="select * from books";
 				PreparedStatement pstmt;
 				pstmt = (PreparedStatement)conn.prepareStatement(sql);
 		        ResultSet rs = pstmt.executeQuery();
 		        while(rs.next()){
 			%>
 			<tr>
+				<td><%=rs.getString(5)%></td>
 				<td><%=rs.getString(1)%></td>
 				<td><%=rs.getString(2)%></td>
 				<td><%=rs.getString(3)%></td>
 				<td><%=rs.getString(4)%></td>
+				<td><%=rs.getString(6)%></td>
+				<td><a href="changebook?Title=<%=rs.getString(5)%>">change</a>/
+					<a href="deletebook?Allbook=<%=rs.getString(1)+"*"+rs.getString(2)+"*"+rs.getString(3)+"*"+rs.getString(4)+"*"+rs.getString(5)+"*"+rs.getString(6)%>"">delete</a>
+				</td>
 			</tr>
 			<%
 		        }
@@ -51,10 +59,10 @@
 				e.printStackTrace();
 				}
 		    %>   
-		</table>
+		 </table>
 	</div>
-
-	<%@ include file="leftmenuauthor.jsp" %>
+	
+	<%@ include file="leftmenu.jsp" %>
 	
 </body>
 </html>

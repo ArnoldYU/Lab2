@@ -12,20 +12,6 @@
 </head>
 <body class="body_all">
 	<div class="all_table">
-	<%
-		try{
-		String driver="com.mysql.jdbc.Driver";
-		String url="jdbc:mysql://localhost:3306/book";
-		String username="root";
-		String password="arnold-huang-123";
-		Connection conn=null;
-		conn = (Connection) DriverManager.getConnection(url, username, password);
-		String sql="select * from books";
-		PreparedStatement pstmt;
-		pstmt = (PreparedStatement)conn.prepareStatement(sql);
-        ResultSet rs = pstmt.executeQuery();
-        while(rs.next()){
-	%>
 		<table class="table table-striped">
 			<tr>
 				<th>AuthorID</th>
@@ -35,6 +21,20 @@
 				<th>Title</th>
 				<th>ISBN</th>
 			</tr>
+			<%
+				try{
+				String driver="com.mysql.jdbc.Driver";
+				String url="jdbc:mysql://localhost:3306/book";
+				String username="root";
+				String password="arnold-huang-123";
+				Connection conn=null;
+				conn = (Connection) DriverManager.getConnection(url, username, password);
+				String sql="select * from books";
+				PreparedStatement pstmt;
+				pstmt = (PreparedStatement)conn.prepareStatement(sql);
+		        ResultSet rs = pstmt.executeQuery();
+		        while(rs.next()){
+			%>
 				<tr>
 					<td><%=rs.getString(1)%></td>
 					<td><%=rs.getString(2)%></td>
@@ -43,16 +43,17 @@
 					<td><%=rs.getString(5)%></td>
 					<td><%=rs.getString(6)%></td>
 				</tr>
+				<%
+			        }
+					rs.close();
+					pstmt.close();
+				    conn.close();
+					}catch(Exception e){
+					e.printStackTrace();
+					}
+			    %>  
 		</table>
-	<%
-        }
-		rs.close();
-		pstmt.close();
-	    conn.close();
-		}catch(Exception e){
-		e.printStackTrace();
-		}
-    %>  
+	
 	</div>
 	<%@ include file="leftmenu.jsp" %>
 </body>
