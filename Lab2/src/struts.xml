@@ -10,6 +10,13 @@
 
     <package name="default" namespace="/" extends="struts-default">
     
+   		<!-- 查找作者的所有作品 -->
+   		
+		<action name="search_author_all_book" class="Lab2.action.ViewABookAction" method="searchauthorwork">
+			<result name="success">/WEB-INF/content/Author_books.jsp</result>
+    		<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		
     	<!-- 首页的登陆action  -->
     	<action name="logicPro" class="Lab2.action.LogicProAction">
     		<result name="success">/WEB-INF/content/Menu.jsp</result>
@@ -85,6 +92,14 @@
 			<result name="success">/WEB-INF/content/Delete_or_Change_Book.jsp</result>
     		<result name="error">/WEB-INF/content/error.jsp</result>
 		</action>
+		<!-- 查找书 -->
+		<action name="search_one_book" class="Lab2.action.BookProAction" method="search">
+			<result name="success">/WEB-INF/content/SearchOneBook.jsp</result>
+    		<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		
+		
+		
     	<!-- 如果没有别的特殊action，默认界面是其本身 -->
     	<action name="home">
 			<result>/WEB-INF/content/home.jsp</result>

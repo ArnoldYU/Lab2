@@ -12,26 +12,44 @@
 </head>
 <body class="body_onebook" style="font-size:13px">
 <%
-	String book=request.getParameter("Allbook");
-  	String []bookDb =book.split("\\*");
-  	System.out.print(bookDb);
-  	bookDb[0]  = new String(bookDb[0].getBytes("ISO8859-1"),"UTF-8");
-  	bookDb[1]  = new String(bookDb[1].getBytes("ISO8859-1"),"UTF-8");
-  	bookDb[3]  = new String(bookDb[2].getBytes("ISO8859-1"),"UTF-8");
-  	bookDb[4]  = new String(bookDb[4].getBytes("ISO8859-1"),"UTF-8");
-  	bookDb[5]  = new String(bookDb[5].getBytes("ISO8859-1"),"UTF-8");
+	String book=request.getParameter("Title");
+	book  = new String(book.getBytes("ISO8859-1"),"UTF-8");
 	%>
 <div>
 <div class="all_table" style="width:30%;right:17%;top:20%;height:40%;font-size:1em">
+<%
+	try{
+		String driver="com.mysql.jdbc.Driver";
+		String url="jdbc:mysql://localhost:3306/book";
+		String username="root";
+		String password="arnold-huang-123";
+		Connection conn=null;
+		conn = (Connection) DriverManager.getConnection(url, username, password);
+		String sql="select * from books";
+		PreparedStatement pstmt;
+		pstmt = (PreparedStatement)conn.prepareStatement(sql);
+        ResultSet rs = pstmt.executeQuery();
+        while(rs.next()){
+		    if(rs.getString(5).equals(book)){
+%>
 		<table class="table ">
-			<tr><th>Title</th><td><%=bookDb[4]%></td></tr>
-			<tr><th>AuthorID</th><td><%=bookDb[0]%></td></tr>
-			<tr><th>Publiser</th><td><%=bookDb[1]%></td></tr>
-			<tr><th>PubliserDate</th><td><%=bookDb[2]%></td></tr>
-			<tr><th>Price</th><td><%=bookDb[3]%></td></tr>
-			<tr><th>ISBN</th><td><%=bookDb[5]%></td></tr>
+			<tr><th>Title</th><td><%=rs.getString(5)%></td></tr>
+			<tr><th>AuthorID</th><td><%=rs.getString(1)%></td></tr>
+			<tr><th>Publiser</th><td><%=rs.getString(2)%></td></tr>
+			<tr><th>PubliserDate</th><td><%=rs.getString(3)%></td></tr>
+			<tr><th>Price</th><td><%=rs.getString(4)%></td></tr>
+			<tr><th>ISBN</th><td><%=rs.getString(6)%></td></tr>
 		 </table>
-		 
+		 <%
+		        }
+		        }
+				rs.close();
+				pstmt.close();
+			    conn.close();
+				}catch(Exception e){
+				e.printStackTrace();
+				}
+		    %>   
 	</div>
 	<a href="All_Book" class="btn" style="position:absolute;top:90%;right:20%;">Back</a>
 </div>

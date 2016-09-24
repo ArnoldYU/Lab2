@@ -108,11 +108,17 @@ public class BookService {
 	    String sql = "select * from books";
 	    PreparedStatement pstmt;
 	    try {
+	    	authorbookDb.clear();
 	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
 	        ResultSet rs = pstmt.executeQuery();
 	        while(rs.next()){
-	        	//if(rs.getString(1).equals(author.getAuthorID()))
+	        //	System.out.println(author.getAuthorID());
+	        	if(rs.getString(1).equals(author.getAuthorID())){
+	        	//	System.out.println("here");
+	        		
 	        		authorbookDb.add(new Book(rs.getString(1),rs.getString(2),rs.getString(3),rs.getDouble(4),rs.getString(5),rs.getString(6)));
+	        	}
+	        		
 	        }	
 	    } catch (SQLException e) {
 	        e.printStackTrace();
@@ -126,21 +132,24 @@ public class BookService {
 	    String Publiser=book.getPubliser();
 	    String PubliserDate=book.getPubliserDate();
 	    String ISBN =book.getIsbn();
+	    String Book=book.getTitle();
+	    System.out.println(book.getTitle());
 	    try {
 	    	authorID  = new String (authorID.getBytes("ISO8859-1"),"UTF-8");
 	    	Publiser  = new String (Publiser.getBytes("ISO8859-1"),"UTF-8");
 	    	PubliserDate  = new String (PubliserDate.getBytes("ISO8859-1"),"UTF-8");
 	    	ISBN  = new String (ISBN.getBytes("ISO8859-1"),"UTF-8");
+	    	Book  = new String (Book.getBytes("ISO8859-1"),"UTF-8");
 		} catch (UnsupportedEncodingException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 	   
-	    String sql1 = "update books set authorID='" + authorID + "' where title='" + book.getTitle() + "'";
-	    String sql2 = "update books set publiser='" + Publiser + "'where title='" + book.getTitle() + "'";
-	    String sql3 = "update books set publiserDate='" + PubliserDate + "' where title='" + book.getTitle() + "'";
-	    String sql4 = "update books set price='" + book.getPrice() + "' where title='" + book.getTitle() +"'";
-	    String sql5 = "update books set country='" + ISBN + "' where title='" + book.getTitle()+"'";
+	    String sql1 = "update books set authorID='" + authorID + "' where title='" + Book + "'";
+	    String sql2 = "update books set publiser='" + Publiser + "'where title='" + Book + "'";
+	    String sql3 = "update books set publiserDate='" + PubliserDate + "' where title='" +Book + "'";
+	    String sql4 = "update books set price='" + book.getPrice() + "' where title='" +Book +"'";
+	    String sql5 = "update books set country='" + ISBN + "' where title='" + Book+"'";
 	    PreparedStatement pstmt1;
 	    PreparedStatement pstmt2;
 	    PreparedStatement pstmt3;
@@ -155,7 +164,7 @@ public class BookService {
 	        i = pstmt1.executeUpdate();
 	        j = pstmt2.executeUpdate();
 	        z = pstmt3.executeUpdate();
-	        System.out.println("resutl: " + i+j+z);
+	        System.out.println("resutl:1 " + i+j+z);
 	        pstmt1.close();
 	        pstmt2.close();
 	        pstmt3.close();
@@ -189,5 +198,33 @@ public class BookService {
 		e.printStackTrace();
 		}
 
+	}
+	public Book searchbook(Book book) {
+		Connection conn = getConn();
+		int i = 0;
+		Book onebook=new Book("null","null","null",0,"null","null");
+		String booktitle=book.getTitle();
+		try {
+			booktitle  = new String(booktitle.getBytes("ISO8859-1"),"UTF-8");
+		} catch (UnsupportedEncodingException e1) {
+			e1.printStackTrace();
+		}
+		System.out.println(booktitle);
+		String sql = "select * from books";
+		PreparedStatement pstmt;
+		try {
+			 pstmt = (PreparedStatement)conn.prepareStatement(sql);
+		     ResultSet rs = pstmt.executeQuery();
+		     while(rs.next()){
+		    	 if(rs.getString(5).equals(book.getTitle())){
+		    		 onebook=new Book(rs.getString(1),rs.getString(2),rs.getString(3),rs.getDouble(4),rs.getString(5),rs.getString(6));
+		    		 return onebook;
+		    	 }
+		    }	
+		    return onebook;
+		} catch (SQLException e) {
+		e.printStackTrace();
+		}
+		return null;
 	}
 }

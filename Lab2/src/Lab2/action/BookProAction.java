@@ -43,4 +43,9 @@ public class BookProAction implements Action {
 		au.deleteBook(book);
 		return SUCCESS;
 	}
+	public String search(){
+		BookService au=new BookService();
+		setBook(au.searchbook(book));
+		return SUCCESS;
+	}
 }

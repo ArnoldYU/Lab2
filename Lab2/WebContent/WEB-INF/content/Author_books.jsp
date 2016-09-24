@@ -32,7 +32,7 @@
 			</s:iterator>
 		</table>
 	</div>
-	
+	<%@ include file="leftmenuauthor.jsp" %>
 </body>
 </html>
 

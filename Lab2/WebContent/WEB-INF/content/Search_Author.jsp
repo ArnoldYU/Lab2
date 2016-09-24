@@ -12,16 +12,18 @@
   </head>
   
   <body class="body2">
-  <form action="searchauthorworks" method="post">
+  <form action="search_author_all_book" method="post">
     <div class="centerOfMenu">
     	<%@ include file="menu_model.jsp" %>
-		<div class="search_1">
+    	
+    		<div class="search_1">
 			<div class="input-append">
 			  <input class="span2" id="appendedInputButton" type="text" name="author.AuthorID">
-			  <button type="submit" class="btn">Author</button>
+			  <button type="submit" class="btn">Search Author's works</button>
 			</div>
-		</div>
+		</div>	
     </div>
   </form>
+  
   </body>
 </html>

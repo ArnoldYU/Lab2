@@ -13,12 +13,15 @@
   <body class="body2">
     <div class="centerOfMenu">
     	<%@ include file="menu_model.jsp" %>
-		<div class="search_1">
-			<div class="input-append">
-			  <input class="span2" id="appendedInputButton" type="text">
-			  <button class="btn" type="button">Title</button>
+    	<form method="post" action="search_one_book">
+	    	<div class="search_1">
+				<div class="input-append">
+				  <input class="span2" id="appendedInputButton" type="text" name="book.title">
+				  <button class="btn" type="submit">Search Book</button>
+				</div>
 			</div>
-		</div>
+    	</form>
+		
     </div>
   </body>
 </html>
