@@ -10,20 +10,19 @@
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
-  
   <body class="body2">
-  <form action="search_author_all_book" method="post">
     <div class="centerOfMenu">
     	<%@ include file="menu_model.jsp" %>
-    	
+    	<form action="search_author_all_book" method="post">
     		<div class="search_1">
-			<div class="input-append">
-			  <input class="span2" id="appendedInputButton" type="text" name="author.AuthorID">
-			  <button type="submit" class="btn">Search Author's works</button>
-			</div>
-		</div>	
+				<div class="input-append">
+			  		<input class="span2" id="appendedInputButton" type="text" name="author.AuthorID">
+			 		<button type="submit" class="btn">Search Author's works</button>
+				</div>
+			</div>	
+		</form>
     </div>
-  </form>
+  
   
   </body>
 </html>
