@@ -67,7 +67,7 @@
     	<!-- 作品存入action -->
     	<action name="BookRegistPro" class="Lab2.action.BookProAction" method="regist">
     		<result name="success">/WEB-INF/content/Menu.jsp</result>
-    		<result name="error">/WEB-INF/content/error.jsp</result>
+    		<result name="error">/WEB-INF/content/insert_author_need.jsp</result>
     	</action>
 
     	<!-- 查看所有作品信息action -->

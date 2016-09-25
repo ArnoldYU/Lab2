@@ -18,7 +18,7 @@ public class BookService {
 	public Integer validateBook(Book book){
 		return getAll(book);
 	}
-	public void addBook(Book book) {
+	public int addBook(Book book) {
 		PreparedStatement str;
 		Connection conn = getConn();
 		String sql = "insert into books (authorID,publiser,publiserDate,price,title,isbn) values(?,?,?,?,?,?)";
@@ -43,11 +43,14 @@ public class BookService {
 		        pstmt.setString(6, book.getIsbn());
 		        pstmt.executeUpdate();
 		        pstmt.close();
+		        return getAll(book);
 	    	}
 	        conn.close();
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    }
+		return -1;
+	    
 	}
 	public List<Book> getAllBooks() {
 		List<Book> bookDb;
@@ -180,12 +183,7 @@ public class BookService {
 		Connection conn = getConn();
 		int i = 0;
 		String booktitle=book.getTitle();
-		try {
-			booktitle  = new String(booktitle.getBytes("ISO8859-1"),"UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			e1.printStackTrace();
-		}
-		System.out.println(booktitle);
+		//System.out.println("1"+booktitle);
 		String sql = "delete from books where title='" + booktitle + "'";
 		PreparedStatement pstmt;
 		try {

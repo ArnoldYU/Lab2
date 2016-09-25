@@ -28,8 +28,12 @@ public class BookProAction implements Action {
 	}
 	public String regist(){
 		BookService bk=new BookService();
-		bk.addBook(book);
-		return SUCCESS;
+		int judge=0;
+		judge=bk.addBook(book);
+		if(judge==1){
+			return SUCCESS;
+		}
+		return ERROR;
 	}
 	public String change(){
 		BookService bk=new BookService();

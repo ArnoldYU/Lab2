@@ -47,7 +47,8 @@
 				<td><%=rs.getString(4)%></td>
 				<td><%=rs.getString(6)%></td>
 				<td><a href="changebook?Title=<%=rs.getString(5)%>">change</a>/
-					<a href="deletebook?Title=<%=rs.getString(5)%>">delete</a>
+					<a href="deletebook?Title=<%=rs.getString(5)+"*"+rs.getString(1)+"*"+
+					rs.getString(2)+"*"+rs.getString(3)+"*"+rs.getString(4)+"*"+rs.getString(6)%>">delete</a>
 				</td>
 			</tr>
 			<%
