@@ -17,7 +17,7 @@
 		  <div class="control-group">
 		    <label class="control-label" for="inputEmail">AuthorID</label>
 		    <div class="controls">
-		      <input type="text" id="inputEmail" placeholder="AuthorID" name="author.AuthorID"/>
+		      <input type="text" id="inputEmail" placeholder="AuthorID" name="author.AuthorID" readonly="readonly " value="${book.authorID }"/>
 		    </div>
 		  </div>
 		  <div class="control-group">

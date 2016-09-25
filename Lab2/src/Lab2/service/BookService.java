@@ -43,7 +43,8 @@ public class BookService {
 		        pstmt.setString(6, book.getIsbn());
 		        pstmt.executeUpdate();
 		        pstmt.close();
-		        return getAll(book);
+		        System.out.println(searchAuthor(book));
+		        return searchAuthor(book);
 	    	}
 	        conn.close();
 	    } catch (SQLException e) {
@@ -90,6 +91,23 @@ public class BookService {
 	private static Integer getAll(Book book) {
 	    Connection conn = getConn();
 	    String sql = "select * from books";
+	    PreparedStatement pstmt;
+	    try {
+	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
+	        ResultSet rs = pstmt.executeQuery();
+	        while(rs.next()){
+	        	if(rs.getString(1).equals(book.getAuthorID()))
+	        		return 1;
+	        }
+	        return -1;
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    return -1;
+	}
+	private static Integer searchAuthor(Book book){
+		Connection conn = getConn();
+	    String sql = "select * from authors";
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
