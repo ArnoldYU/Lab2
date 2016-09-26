@@ -20,7 +20,7 @@
   	<%
 	String book=request.getParameter("Title");
   	String []bookDb =book.split("\\*");
-  	System.out.print(bookDb);
+  	//System.out.print(bookDb);
   	bookDb[0]  = new String(bookDb[0].getBytes("ISO8859-1"),"UTF-8");
   	bookDb[1]  = new String(bookDb[1].getBytes("ISO8859-1"),"UTF-8");
   	bookDb[2]  = new String(bookDb[2].getBytes("ISO8859-1"),"UTF-8");

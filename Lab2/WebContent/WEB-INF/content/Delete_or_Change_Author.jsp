@@ -22,38 +22,17 @@
 				<th>Country</th>
 				<th>Function</th>
 			</tr>
-			<%
-				try{
-				String driver="com.mysql.jdbc.Driver";
-				String url="jdbc:mysql://localhost:3306/author";
-				String username="root";
-				String password="arnold-huang-123";
-				Connection conn=null;
-				conn = (Connection) DriverManager.getConnection(url, username, password);
-				String sql="select * from authors";
-				PreparedStatement pstmt;
-				pstmt = (PreparedStatement)conn.prepareStatement(sql);
-		        ResultSet rs = pstmt.executeQuery();
-		        while(rs.next()){
-			%>
+			<s:iterator value="authors" var="au"> 
 			<tr>
-				<td><%=rs.getString(1)%></td>
-				<td><%=rs.getString(2)%></td>
-				<td><%=rs.getString(3)%></td>
-				<td><%=rs.getString(4)%></td>
-				<td><a href="changeauthor?authorID=<%=rs.getString(1)%>">change</a>/
-					<a href="deleteauthor?Allauthor=<%=rs.getString(1)+"*"+rs.getString(2)+"*"+rs.getString(3)+"*"+rs.getString(4)%>">delete</a>
+				<td>${au.authorID }</td>
+				<td>${au.name }</td>
+				<td>${au.age }</td>
+				<td>${au.country }</td>
+				<td><a href="changeauthor?authorID=${au.authorID }">change</a>/
+					<a href="deleteauthor?Allauthor=${au.authorID }+*+${au.name }+*+${au.age }+*+${au.country }">delete</a>
 				</td>
 			</tr>
-			<%
-		        }
-				rs.close();
-				pstmt.close();
-			    conn.close();
-				}catch(Exception e){
-				e.printStackTrace();
-				}
-		    %>   
+			</s:iterator>
 		 </table>
 	</div>
 	

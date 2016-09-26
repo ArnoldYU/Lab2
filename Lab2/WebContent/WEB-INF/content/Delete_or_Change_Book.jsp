@@ -25,41 +25,20 @@
 				<th>ISBN</th>
 				<th>Function</th>
 			</tr>
-			<%
-				try{
-				String driver="com.mysql.jdbc.Driver";
-				String url="jdbc:mysql://localhost:3306/book";
-				String username="root";
-				String password="arnold-huang-123";
-				Connection conn=null;
-				conn = (Connection) DriverManager.getConnection(url, username, password);
-				String sql="select * from books";
-				PreparedStatement pstmt;
-				pstmt = (PreparedStatement)conn.prepareStatement(sql);
-		        ResultSet rs = pstmt.executeQuery();
-		        while(rs.next()){
-			%>
+			<s:iterator value="books" var="au"> 
 			<tr>
-				<td><%=rs.getString(5)%></td>
-				<td><%=rs.getString(1)%></td>
-				<td><%=rs.getString(2)%></td>
-				<td><%=rs.getString(3)%></td>
-				<td><%=rs.getString(4)%></td>
-				<td><%=rs.getString(6)%></td>
-				<td><a href="changebook?Title=<%=rs.getString(5)%>">change</a>/
-					<a href="deletebook?Title=<%=rs.getString(5)+"*"+rs.getString(1)+"*"+
-					rs.getString(2)+"*"+rs.getString(3)+"*"+rs.getString(4)+"*"+rs.getString(6)%>">delete</a>
+				<td>${au.title }</td>
+				<td>${au.authorID }</td>
+				<td>${au.publiser }</td>
+				<td>${au.publiserDate }</td>
+				<td>${au.price }</td>
+				<td>${au.isbn }</td>
+				<td><a href="changebook?Title=${au.title }">change</a>/
+					<a href="deletebook?Title=${au.title }+*+${au.authorID }+*+
+					${au.publiser }+*+${au.publiserDate }+*+${au.price }+*+${au.isbn }">delete</a>
 				</td>
 			</tr>
-			<%
-		        }
-				rs.close();
-				pstmt.close();
-			    conn.close();
-				}catch(Exception e){
-				e.printStackTrace();
-				}
-		    %>   
+			</s:iterator>
 		 </table>
 	</div>
 	

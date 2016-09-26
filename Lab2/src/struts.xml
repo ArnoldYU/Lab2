@@ -57,7 +57,10 @@
     		<result name="success">/WEB-INF/content/All_Author.jsp</result>
     		<result name="error">/WEB-INF/content/error.jsp</result>
     	</action>
-    	
+    	<action name="change_or_delete_authors" class="Lab2.action.ViewAuthorAction">
+    		<result name="success">/WEB-INF/content/Delete_or_Change_Author.jsp</result>
+    		<result name="error">/WEB-INF/content/error.jsp</result>
+    	</action>
     	<!-- 作品登陆action -->
     	<action name="BookPro" class="Lab2.action.BookProAction">
     		<result name="success">/WEB-INF/content/Menu.jsp</result>
@@ -75,7 +78,10 @@
     		<result name="success">/WEB-INF/content/All_Book.jsp</result>
     		<result name="error">/WEB-INF/content/error.jsp</result>
     	</action>
-    	
+    	<action name="change_or_delete_books" class="Lab2.action.ViewABookAction" >
+    		<result name="success">/WEB-INF/content/Delete_or_Change_Book.jsp</result>
+    		<result name="error">/WEB-INF/content/error.jsp</result>
+    	</action>
     	<!-- 进入Author删除页面 这里需要将所有信息弄到页面上 -->
 		<action name="goto_delete_page" class="Lab2.action.ViewAuthorAction">
 			<result name="success">/WEB-INF/content/Delete_Author.jsp</result>
@@ -84,12 +90,12 @@
 		
 		<!-- 删除Author信息 -->
 		<action name="goto_delete_author" class="Lab2.action.AuthorProAction" method="delete">
-			<result name="success">/WEB-INF/content/Delete_or_Change_Author.jsp</result>
+			<result name="success">/WEB-INF/content/Menu.jsp</result>
     		<result name="error">/WEB-INF/content/error.jsp</result>
 		</action>
 		<!-- 删除book信息 -->
 		<action name="goto_delete_book" class="Lab2.action.BookProAction" method="delete">
-			<result name="success">/WEB-INF/content/Delete_or_Change_Book.jsp</result>
+			<result name="success">/WEB-INF/content/Menu.jsp</result>
     		<result name="error">/WEB-INF/content/error.jsp</result>
 		</action>
 		<!-- 查找书 -->

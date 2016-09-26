@@ -8,16 +8,16 @@
     		</li>
    			<li><a href="#">Delete</a>
    				<ul>
-   					<li><a href="Delete_or_Change_Author">Delete Author</a></li>
-   					<li><a href="#">Delete Book</a></li>
+   					<li><a href="change_or_delete_authors">Delete Author</a></li>
+   					<li><a href="change_or_delete_books">Delete Book</a></li>
    				</ul>
    			</li>
     		<li><a href="#">Update</a>
     			<ul>
     				<li><a href="insert_author">Insert Author</a></li>
     				<li><a href="insertwork">Insert work</a></li>
-    				<li><a href="Delete_or_Change_Author">change Author</a></li>
-    				<li><a href="Delete_or_Change_Book">change work</a></li>
+    				<li><a href="change_or_delete_authors">change Author</a></li>
+    				<li><a href="change_or_delete_books">change work</a></li>
     			</ul>
     		</li>	
     		<li><a href="#">Show</a>

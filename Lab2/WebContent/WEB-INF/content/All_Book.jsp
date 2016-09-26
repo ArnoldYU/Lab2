@@ -16,32 +16,12 @@
 			<tr>
 				<th>Title</th>
 			</tr>
-			<%
-				try{
-				String driver="com.mysql.jdbc.Driver";
-				String url="jdbc:mysql://localhost:3306/book";
-				String username="root";
-				String password="arnold-huang-123";
-				Connection conn=null;
-				conn = (Connection) DriverManager.getConnection(url, username, password);
-				String sql="select * from books";
-				PreparedStatement pstmt;
-				pstmt = (PreparedStatement)conn.prepareStatement(sql);
-		        ResultSet rs = pstmt.executeQuery();
-		        while(rs.next()){
-			%>
+			<s:iterator value="books" var="au"> 
 				<tr>
-					<td><a href="OneBook?Title=<%=rs.getString(5)%>"><%=rs.getString(5)%></a></td>
+					<td><a href="OneBook?Title=${au.title }+*+${au.authorID }+*+
+					${au.publiser }+*+${au.publiserDate }+*+${au.price }+*+${au.isbn } }">${au.title }</a></td>
 				</tr>
-				<%
-			        }
-					rs.close();
-					pstmt.close();
-				    conn.close();
-					}catch(Exception e){
-					e.printStackTrace();
-					}
-			    %>  
+			</s:iterator>
 		</table>
 	
 	</div>

@@ -11,7 +11,11 @@
 <link href="mystyle.css" rel="stylesheet" type="text/css" />
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
 <title>查看所有作者信息</title>
-
+<!-- String url="jdbc:mysql://w.rdc.sae.sina.com.cn:3307/app_arnoldhby";
+				String username=System.getenv("z44xwmx111");
+				String password=System.getenv("wi51kxyy5m3y5hkzh34iii5kzmkhkx043yxm0wl0");
+				String dbUrl = String.format("jdbc:mysql://%s:%s/%s", System.getenv("MYSQL_HOST"), System.getenv("MYSQL_PORT"), System.getenv("MYSQL_DB"));
+				Connection conn=null; -->
 </head>
 <body class="body_all">
 	<div class="all_table">
@@ -22,35 +26,14 @@
 				<th>Age</th>
 				<th>Country</th>
 			</tr>
-			<%
-				try{
-				String driver="com.mysql.jdbc.Driver";
-				String url="jdbc:mysql://localhost:3306/author";
-				String username="root";
-				String password="arnold-huang-123";
-				Connection conn=null;
-				conn = (Connection) DriverManager.getConnection(url, username, password);
-				String sql="select * from authors";
-				PreparedStatement pstmt;
-				pstmt = (PreparedStatement)conn.prepareStatement(sql);
-		        ResultSet rs = pstmt.executeQuery();
-		        while(rs.next()){
-			%>
+			<s:iterator value="authors" var="au"> 
 			<tr>
-				<td><%=rs.getString(1)%></td>
-				<td><%=rs.getString(2)%></td>
-				<td><%=rs.getString(3)%></td>
-				<td><%=rs.getString(4)%></td>
-			</tr>
-			<%
-		        }
-				rs.close();
-				pstmt.close();
-			    conn.close();
-				}catch(Exception e){
-				e.printStackTrace();
-				}
-		    %>   
+				<td>${au.authorID}</td>
+				<td>${au.name}</td>
+				<td>${au.age}</td>
+				<td>${au.country}</td>
+			</tr> 
+			</s:iterator>
 		</table>
 	</div>
 

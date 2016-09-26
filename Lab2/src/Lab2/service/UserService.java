@@ -14,7 +14,7 @@ public class UserService {
 	    String driver = "com.mysql.jdbc.Driver";
 	    String url = "jdbc:mysql://localhost:3306/User";
 	    String username = "root";
-	    String password = "arnold-huang-123";
+	    String password = "501874997";
 	    Connection conn = null;
 	    try {
 	        Class.forName(driver); //classLoader,加载对应驱动

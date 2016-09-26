@@ -67,7 +67,9 @@ public class AuthorService {
 	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
 	        ResultSet rs = pstmt.executeQuery();
 	        authorDb.clear();
+	        System.out.println("here");
 	        while(rs.next()){
+	        	 System.out.println("here1");
 	        	authorDb.add(new Author(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4)));
 	        }	
 	        pstmt.close();
@@ -83,7 +85,7 @@ public class AuthorService {
 	    String driver = "com.mysql.jdbc.Driver";
 	    String url = "jdbc:mysql://localhost:3306/author";
 	    String username = "root";
-	    String password = "arnold-huang-123";
+	    String password = "501874997";
 	    Connection conn = null;
 	    try {
 	        Class.forName(driver); //classLoader,加载对应驱动

@@ -76,7 +76,7 @@ public class BookService {
 	    String driver = "com.mysql.jdbc.Driver";
 	    String url = "jdbc:mysql://localhost:3306/book";
 	    String username = "root";
-	    String password = "arnold-huang-123";
+	    String password = "501874997";
 	    Connection conn = null;
 	    try {
 	        Class.forName(driver); //classLoader,加载对应驱动
@@ -133,14 +133,15 @@ public class BookService {
 	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
 	        ResultSet rs = pstmt.executeQuery();
 	        while(rs.next()){
-	        //	System.out.println(author.getAuthorID());
+	        	System.out.println(author.getAuthorID()+rs.getString(1));
 	        	if(rs.getString(1).equals(author.getAuthorID())){
-	        	//	System.out.println("here");
+	        		System.out.println("here");
 	        		
 	        		authorbookDb.add(new Book(rs.getString(1),rs.getString(2),rs.getString(3),rs.getDouble(4),rs.getString(5),rs.getString(6)));
 	        	}
 	        		
 	        }	
+	        return authorbookDb;
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    }

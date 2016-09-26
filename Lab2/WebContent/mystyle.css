@@ -1,9 +1,9 @@
 .body1{
-	background: url(background.jpg) no-repeat;
+	background: url(images/background.jpg) no-repeat;
 	background-size: 100%;
 }
 .body2{
-	background: url(BackgroundOfMenu.png) no-repeat;
+	background: url(images/BackgroundOfMenu.png) no-repeat;
 	background-size: 100%;
 }
 .center{
@@ -156,7 +156,7 @@ form {
 	margin-left:10px;
 }
 .body_all{
-	background: url(allauthor.jpg) no-repeat;
+	background: url(images/allauthor.jpg) no-repeat;
 	background-size: 100%;
 }
 .all_table{
@@ -191,7 +191,7 @@ ul.nav li a{
 ul.nav li a:hover{background:#ebebeb url(border.png) no-repeat;color:#67a5cd;padding:7px 15px 7px 30px;}
 
 .body_onebook{
-	background: url(onebook.jpg) no-repeat;
+	background: url(images/onebook.jpg) no-repeat;
 	background-size: 100%;
 }
 .onebook{

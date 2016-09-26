@@ -18,7 +18,6 @@ addEvent(window, 'load', function (event) {
     }, false);
     aLoops[0].play();
 });
-And then, we should add the handlers to different events: mouseover, mouseout and click:
 
 // all the buttons
 var aBtns = document.querySelectorAll('#nav li');
