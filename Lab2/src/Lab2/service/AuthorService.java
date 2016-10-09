@@ -62,7 +62,6 @@ public class AuthorService {
 		Connection conn = getConn();
 	    String sql = "select * from authors";
 	    PreparedStatement pstmt;
-	    
 	    try {
 	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
 	        ResultSet rs = pstmt.executeQuery();
@@ -75,15 +74,15 @@ public class AuthorService {
 	        pstmt.close();
 	        conn.close();
 	    } catch (SQLException e) {
-	        e.printStackTrace();
+	        e.printStackTrace(); 
 	    }
 		
 		return authorDb;
 	}
 	//打开数据库
 	private static Connection getConn() {
-	    String driver = "com.mysql.jdbc.Driver";
-	    String url = "jdbc:mysql://localhost:3306/author";
+		String driver = "com.mysql.jdbc.Driver";
+	    String url = "jdbc:mysql://mimdxvtilevx.rds.sae.sina.com.cn:10562/author";
 	    String username = "root";
 	    String password = "501874997";
 	    Connection conn = null;
@@ -95,6 +94,19 @@ public class AuthorService {
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    }
+//	    String driver = "com.mysql.jdbc.Driver";
+//	    String username = System.getenv("k45lkzx525");
+//	    String password = System.getenv("lilil415mwyk2xx5lj23k5im5jw4430kyimlykjj");
+//	    //System.getenv("MYSQL_HOST_S"); 为从库，只读
+//	    Connection conn = null;
+//	    String dbUrl = String.format("jdbc:mysql://%s:%s/%s", System.getenv("vxprladkpcrq.rds.sae.sina.com.cn"), System.getenv("10132"), System.getenv("authors"));
+//	    try {
+//	        Class.forName(driver).newInstance();
+//	        conn = (Connection)DriverManager.getConnection(dbUrl, username, password);
+//	        // ...
+//	    } catch (Exception e) {
+//	        // ...
+//	    }
 	    return conn;
 	}
 	//从数据库中查找数据
@@ -105,6 +117,7 @@ public class AuthorService {
 	    try {
 	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
 	        ResultSet rs = pstmt.executeQuery();
+	        System.out.println("0000");
 	        while(rs.next()){
 	        	if(rs.getString(1).equals(author.getAuthorID())&&rs.getString(2).equals(author.getName()))
 	        		return 1;
@@ -123,15 +136,7 @@ public class AuthorService {
 	    String Name=author.getName();
 	    String Age=author.getAge();
 	    String Country=author.getCountry();
-	    try {
-			Name  = new String (Name.getBytes("ISO8859-1"),"UTF-8");
-			Age  = new String (Age.getBytes("ISO8859-1"),"UTF-8");
-			Country  = new String (Country.getBytes("ISO8859-1"),"UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-	   
+
 	    String sql1 = "update authors set name='" + Name + "' where authorID='" + author.getAuthorID() + "'";
 	    String sql2 = "update authors set age='" + Age + "'where authorID='" + author.getAuthorID() + "'";
 	    String sql3 = "update authors set country='" + Country + "' where authorID='" + author.getAuthorID() + "'";

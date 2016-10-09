@@ -28,7 +28,7 @@
 		 </s:iterator>
 
 	</div>
-	<a href="All_Book" class="btn" style="position:absolute;top:90%;right:20%;">Back</a>
+	<a href="Search_Title" class="btn" style="position:absolute;top:90%;right:20%;">Back</a>
 </div>
 
 

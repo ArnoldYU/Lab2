@@ -29,7 +29,7 @@
 		  <div class="control-group">
 		    <label class="control-label" for="inputEmail">PubliserDat</label>
 		    <div class="controls">
-		      <input type="text" id="inputEmail" placeholder="PubliserDat" name="book.publiserDate">
+		      <input type="text" id="inputEmail" placeholder="PubliserDate" name="book.publiserDate">
 		    </div>
 		  </div>
 		  <div class="control-group">

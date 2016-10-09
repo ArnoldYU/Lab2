@@ -33,9 +33,10 @@
 				<td>${au.publiserDate }</td>
 				<td>${au.price }</td>
 				<td>${au.isbn }</td>
-				<td><a href="changebook?Title=${au.title }">change</a>/
+				<td><a href="changebook?Title=${au.title }+*+${au.authorID }+*+
+					${au.publiser }+*+${au.publiserDate }+*+${au.price }+*+${au.isbn}">change</a>/
 					<a href="deletebook?Title=${au.title }+*+${au.authorID }+*+
-					${au.publiser }+*+${au.publiserDate }+*+${au.price }+*+${au.isbn }">delete</a>
+					${au.publiser }+*+${au.publiserDate }+*+${au.price }+*+${au.isbn}">delete</a>
 				</td>
 			</tr>
 			</s:iterator>

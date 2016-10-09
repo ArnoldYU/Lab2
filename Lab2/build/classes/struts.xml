@@ -113,11 +113,39 @@
 		<action name="register">
 			<result>/WEB-INF/content/register.jsp</result>
 		</action>
-		<action name="*">
-			<result>/WEB-INF/content/{1}.jsp</result>
+		<action name="Menu">
+			<result>/WEB-INF/content/Menu.jsp</result>
 		</action>
-		
-		
+		<action name="OneBook">
+			<result>/WEB-INF/content/OneBook.jsp</result>
+		</action>
+		<action name="changeauthor">
+			<result>/WEB-INF/content/changeauthor.jsp</result>
+		</action>
+		<action name="changebook">
+			<result>/WEB-INF/content/changebook.jsp</result>
+		</action>
+		<action name="deleteauthor">
+			<result>/WEB-INF/content/deleteauthor.jsp</result>
+		</action>
+		<action name="deletebook">
+			<result>/WEB-INF/content/deletebook.jsp</result>
+		</action>
+		<action name="Search_Author">
+			<result>/WEB-INF/content/Search_Author.jsp</result>
+		</action>
+		<action name="Search_Title">
+			<result>/WEB-INF/content/Search_Title.jsp</result>
+		</action>
+		<action name="help">
+			<result>/WEB-INF/content/help.jsp</result>
+		</action>
+		<action name="insert_author">
+			<result>/WEB-INF/content/insert_author.jsp</result>
+		</action>
+		<action name="insertwork">
+			<result>/WEB-INF/content/insertwork.jsp</result>
+		</action>
     </package>
 
     <!-- Add packages here -->

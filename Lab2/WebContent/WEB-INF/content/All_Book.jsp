@@ -19,7 +19,7 @@
 			<s:iterator value="books" var="au"> 
 				<tr>
 					<td><a href="OneBook?Title=${au.title }+*+${au.authorID }+*+
-					${au.publiser }+*+${au.publiserDate }+*+${au.price }+*+${au.isbn } }">${au.title }</a></td>
+					${au.publiser }+*+${au.publiserDate }+*+${au.price }+*+${au.isbn }">${au.title }</a></td>
 				</tr>
 			</s:iterator>
 		</table>

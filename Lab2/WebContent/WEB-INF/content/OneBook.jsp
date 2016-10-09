@@ -14,12 +14,8 @@
 <%
 	String book=request.getParameter("Title");
 	String []bookDb =book.split("\\*");
-	System.out.print(bookDb);
-	bookDb[0]  = new String(bookDb[0].getBytes("ISO8859-1"),"UTF-8");
-	bookDb[1]  = new String(bookDb[1].getBytes("ISO8859-1"),"UTF-8");
-	bookDb[2]  = new String(bookDb[2].getBytes("ISO8859-1"),"UTF-8");
-	bookDb[4]  = new String(bookDb[4].getBytes("ISO8859-1"),"UTF-8");
-	bookDb[5]  = new String(bookDb[5].getBytes("ISO8859-1"),"UTF-8");
+	System.out.print(bookDb[5]);
+
 	%>
 <div>
 <div class="all_table" style="width:30%;right:17%;top:20%;height:40%;font-size:1em">
@@ -34,7 +30,7 @@
 		 </table>
 
 	</div>
-	<a href="All_Book" class="btn" style="position:absolute;top:90%;right:20%;">Back</a>
+	<a href="viewBooks" class="btn" style="position:absolute;top:90%;right:20%;">Back</a>
 </div>
 
 

@@ -28,7 +28,7 @@ public class BookService {
 	    	str = (PreparedStatement)conn.prepareStatement("select * from books");
 	    	ResultSet rs = str.executeQuery();
 	    	while(rs.next()){
-	    		if(book.getAuthorID().equals(rs.getString(1))&&book.getPubliser().equals(rs.getString(2))&&book.getPubliserDate().equals(rs.getString(3))&&book.getPrice()==rs.getDouble(4)&&book.getTitle().equals(rs.getString(5))&&book.getIsbn().equals(rs.getString(6))){
+	    		if(book.getIsbn().equals(rs.getString(6))){
 	    			yes=0;
 	    			break;
 	    		}
@@ -74,7 +74,7 @@ public class BookService {
 	//打开数据库
 	private static Connection getConn() {
 	    String driver = "com.mysql.jdbc.Driver";
-	    String url = "jdbc:mysql://localhost:3306/book";
+	    String url = "jdbc:mysql://mimdxvtilevx.rds.sae.sina.com.cn:10562/author";
 	    String username = "root";
 	    String password = "501874997";
 	    Connection conn = null;
@@ -106,13 +106,27 @@ public class BookService {
 	    return -1;
 	}
 	private static Integer searchAuthor(Book book){
-		Connection conn = getConn();
+	    String driver = "com.mysql.jdbc.Driver";
+	    String url = "jdbc:mysql://yrygykrswzot.rds.sae.sina.com.cn:10544/author";
+	    String username = "root";
+	    String password = "501874997";
+	    Connection conn = null;
+	    try {
+	        Class.forName(driver); //classLoader,加载对应驱动
+	        conn = (Connection) DriverManager.getConnection(url, username, password);
+	    } catch (ClassNotFoundException e) {
+	        e.printStackTrace();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
 	    String sql = "select * from authors";
+	    System.out.println("11111111111111111111");
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement)conn.prepareStatement(sql);
 	        ResultSet rs = pstmt.executeQuery();
 	        while(rs.next()){
+	        	System.out.print(rs.getString(1));
 	        	if(rs.getString(1).equals(book.getAuthorID()))
 	        		return 1;
 	        }

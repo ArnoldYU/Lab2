@@ -10,8 +10,8 @@
   </head>
   <body class="body1"> 
  	<%
-	String booktitle=request.getParameter("Title");
- 	booktitle  = new String(booktitle.getBytes("ISO8859-1"),"UTF-8");
+ 	String book=request.getParameter("Title");
+  	String []bookDb =book.split("\\*");
 	%>
     <div class="center">
     	<div class="word">
@@ -21,37 +21,37 @@
     	  <div class="control-group">
 		    <label class="control-label" for="inputEmail">Title</label>
 		    <div class="controls">
-		      <input type="text" id="inputEmail" placeholder="Title" readonly="readonly" value="<%=booktitle%>" name="book.title">
+		      <input type="text" id="inputEmail" placeholder="Title" readonly="readonly" value="<%=bookDb[0]%>" name="book.title">
 		    </div>
 		  </div>
 		  <div class="control-group">
 		    <label class="control-label" for="inputEmail">AuthorID</label>
 		    <div class="controls">
-		      <input type="text" id="inputEmail" placeholder="AuthorID" name="book.authorID">
+		      <input type="text" id="inputEmail" placeholder="authorID" name="book.authorID" value="<%=bookDb[1]%>">
 		    </div>
 		  </div>
 		  <div class="control-group">
 		    <label class="control-label" for="inputEmail">Publiser</label>
 		    <div class="controls">
-		      <input type="text" id="inputEmail" placeholder="Publiser" name="book.publiser">
+		      <input type="text" id="inputEmail" placeholder="publiser" name="book.publiser" value="<%=bookDb[2]%>">
 		    </div>
 		  </div>
 		  <div class="control-group">
 		    <label class="control-label" for="inputEmail">PubliserDate</label>
 		    <div class="controls">
-		      <input type="text" id="inputEmail" placeholder="PubliserDat" name="book.publiserDate">
+		      <input type="text" id="inputEmail" placeholder="publiserDate" name="book.publiserDate" value="<%=bookDb[3]%>">
 		    </div>
 		  </div>
 		  <div class="control-group">
 		    <label class="control-label" for="inputEmail">"price"</label>
 		    <div class="controls">
-		      <input type="text" id="inputEmail" placeholder="price" name="book.price">
+		      <input type="text" id="inputEmail" placeholder="price" name="book.price" value="<%=bookDb[4]%>">
 		    </div>
 		  </div>
 		   <div class="control-group">
 		    <label class="control-label" for="inputEmail">ISBN</label>
 		    <div class="controls">
-		      <input type="text" id="inputEmail" placeholder="ISBN" name="book.isbn">
+		      <input type="text" id="inputEmail" placeholder="isbn" name="book.isbn" value="<%=bookDb[5]%>">
 		    </div>
 		  </div>
 		  <div class="control-group">

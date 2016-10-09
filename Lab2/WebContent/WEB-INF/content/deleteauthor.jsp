@@ -21,8 +21,7 @@
 	String author1=request.getParameter("Allauthor");
   	String []authorID =author1.split("\\*");
   	System.out.print(authorID);
- 	authorID[1]  = new String(authorID[1].getBytes("ISO8859-1"),"UTF-8");
- 	authorID[3]  = new String(authorID[3].getBytes("ISO8859-1"),"UTF-8");
+
 	%>
     <div class="center">
     	<div class="word">
